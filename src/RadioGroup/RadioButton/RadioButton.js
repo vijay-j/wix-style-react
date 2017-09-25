@@ -4,7 +4,6 @@ import uniqueId from 'lodash/uniqueId';
 import styles from '../RadioGroup.scss';
 import classNames from 'classnames';
 import WixComponent from '../../BaseComponents/WixComponent';
-import typography, {convertFromUxLangToCss} from '../../Typography';
 import {RadioButton as StylableRadioButton} from 'stylable-components';
 import {stylable} from 'wix-react-tools';
 import stStyles from './RadioButton.st.css';
@@ -19,12 +18,6 @@ class RadioButton extends WixComponent {
   render() {
     const {value, vAlign, checked, disabled, name, type, onChange, style} = this.props;
 
-    const labelClasses = classNames({
-      [styles.vcenter]: vAlign === 'center',
-      [styles.vtop]: vAlign === 'top',
-      [typography[convertFromUxLangToCss('T1.1')]]: true
-    });
-
     const buttonClasses = classNames({
       [styles.checked]: checked,
       [styles.radioButton]: true
@@ -32,9 +25,11 @@ class RadioButton extends WixComponent {
 
     const {icon, children} = this.props;
     return (
-        type === 'button' ? (
+      <div className="radioButtonWrapper">
+        {type === 'button' ? (
           <button
-            className={buttonClasses}
+            className="button"
+            style-state={{checked, disabled}}
             checked={checked}
             disabled={disabled}
             id={this.id}
@@ -52,16 +47,17 @@ class RadioButton extends WixComponent {
                 checked={checked}
                 disabled={disabled}
                 onChange={() => (!checked && !disabled) ? onChange(value) : null}
-                className="stylableButton"
+                className="stylableRadio"
                 style-state={{labelAlignTop: vAlign === 'top'}}
                 >
-                <label htmlFor={this.id} className={'radioLabel ' + typography[convertFromUxLangToCss('T1.1')]} data-hook="radio-label">
+                <label className="radioLabel" data-hook="radio-label">
                   <div className={styles.children}>
                     {this.props.children}
                   </div>
                 </label>
               </StylableRadioButton>
-            )
+          )}
+      </div>
     );
   }
 }

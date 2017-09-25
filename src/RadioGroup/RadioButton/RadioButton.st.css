@@ -5,34 +5,89 @@
     -st-default: StRadio;
 }
 
-.root {
+:import {
+    -st-from: '../../Typography/typography-mixins.js';
+    -st-named: Typography;
+}
+
+:import {
+    -st-from: '../../common.st.css';
+    -st-named: B10, B50, D10, D50, D80;
+}
+
+.button {
+    -st-states: checked, disabled;
+    width: 105px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    line-height: 0;
+    background: value(D80);
+    outline: 0;
+    color: value(D10);
+}
+
+.button:disabled {
+     cursor: initial;
+     color: value(D50);
+}
+
+.button:checked {
+    box-shadow: value(B10) 0 0 0 1px;
+}
+
+.button:checked:disabled {
+    box-shadow: value(B50) 0 0 0 1px;
+}
+
+.button:hover {
+    background: value(B50);
+}
+
+.button:checked, .button:disabled {
+     background: value(D80);
+}
+
+:global(.rtl) .button {
+    flex-direction: row-reverse;
+}
+
+.button > * {
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.stylableRadio {
     -st-extends: StRadio;
     -st-states: labelAlignTop;
 }
 
-.stylableButton {
-
-}
-
-.root::radioSVG {
+.stylableRadio::radioSVG {
     height: 17px;
     width: 17px;
 }
 
 .radioLabel {
+    -st-mixin: Typography(t,1,1);
     display: flex;
     flex-direction: row;
     cursor: pointer;
 }
 
-.root:disabled .radioLabel {
+.stylableRadio:disabled .radioLabel {
     cursor: default;
 }
 
-.root:labelAlignTop::contentContainer{
+.stylableRadio:labelAlignTop::contentContainer{
     align-items: start;
 }
 
-:global(.rtl) .root::contentContainer {
+:global(.rtl) .stylableRadio::contentContainer {
     direction: rtl;
 }
+
