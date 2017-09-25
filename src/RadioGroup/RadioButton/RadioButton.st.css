@@ -1,0 +1,38 @@
+@namespace "StylableRadioButton";
+
+:import {
+    -st-from: 'stylable-components/dist/src/components/radio-group/radio-button.st.css';
+    -st-default: StRadio;
+}
+
+.root {
+    -st-extends: StRadio;
+    -st-states: labelAlignTop;
+}
+
+.stylableButton {
+
+}
+
+.root::radioSVG {
+    height: 17px;
+    width: 17px;
+}
+
+.radioLabel {
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+.root:disabled .radioLabel {
+    cursor: default;
+}
+
+.root:labelAlignTop::contentContainer{
+    align-items: start;
+}
+
+:global(.rtl) .root::contentContainer {
+    direction: rtl;
+}

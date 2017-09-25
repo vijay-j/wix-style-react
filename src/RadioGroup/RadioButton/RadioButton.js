@@ -5,7 +5,11 @@ import styles from '../RadioGroup.scss';
 import classNames from 'classnames';
 import WixComponent from '../../BaseComponents/WixComponent';
 import typography, {convertFromUxLangToCss} from '../../Typography';
+import {RadioButton as StylableRadioButton} from 'stylable-components';
+import {stylable} from 'wix-react-tools';
+import stStyles from './RadioButton.st.css';
 
+@stylable(stStyles)
 class RadioButton extends WixComponent {
   constructor(props) {
     super(props);
@@ -14,12 +18,6 @@ class RadioButton extends WixComponent {
 
   render() {
     const {value, vAlign, checked, disabled, name, type, onChange, style} = this.props;
-
-    const radioClasses = classNames({
-      [styles.radio]: true,
-      [styles.checked]: checked,
-      [styles.disabled]: disabled
-    });
 
     const labelClasses = classNames({
       [styles.vcenter]: vAlign === 'center',
@@ -45,25 +43,25 @@ class RadioButton extends WixComponent {
             {icon ? <span>{icon}</span> : null}
             {children ? <span>{children}</span> : null}
           </button>
-        ) : (
-          <div className={styles.radioWrapper} style={style}>
-            <input
-              type="radio"
-              name={name}
-              value={value}
-              id={this.id}
-              checked={checked}
-              disabled={disabled}
-              onChange={() => (!checked && !disabled) ? onChange(value) : null}
-              />
-            <label htmlFor={this.id} className={labelClasses} data-hook="radio-label">
-              <div className={radioClasses}/>
-              <div className={styles.children}>
-                {this.props.children}
-              </div>
-            </label>
-          </div>
-      )
+            ) :
+            (
+              <StylableRadioButton
+                name={name}
+                value={value}
+                id={this.id}
+                checked={checked}
+                disabled={disabled}
+                onChange={() => (!checked && !disabled) ? onChange(value) : null}
+                className="stylableButton"
+                style-state={{labelAlignTop: vAlign === 'top'}}
+                >
+                <label htmlFor={this.id} className={'radioLabel ' + typography[convertFromUxLangToCss('T1.1')]} data-hook="radio-label">
+                  <div className={styles.children}>
+                    {this.props.children}
+                  </div>
+                </label>
+              </StylableRadioButton>
+            )
     );
   }
 }
