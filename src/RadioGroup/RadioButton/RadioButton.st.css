@@ -91,3 +91,12 @@
     direction: rtl;
 }
 
+.children
+{
+    padding-left: 12px;
+}
+
+:global(.rtl) .children
+{
+    padding-right: 12px;
+}

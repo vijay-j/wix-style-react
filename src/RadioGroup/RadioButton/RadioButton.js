@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import uniqueId from 'lodash/uniqueId';
-import styles from '../RadioGroup.scss';
-import classNames from 'classnames';
 import WixComponent from '../../BaseComponents/WixComponent';
 import {RadioButton as StylableRadioButton} from 'stylable-components';
 import {stylable} from 'wix-react-tools';
@@ -16,12 +14,7 @@ class RadioButton extends WixComponent {
   }
 
   render() {
-    const {value, vAlign, checked, disabled, name, type, onChange, style} = this.props;
-
-    const buttonClasses = classNames({
-      [styles.checked]: checked,
-      [styles.radioButton]: true
-    });
+    const {value, vAlign, checked, disabled, name, type, onChange} = this.props;
 
     const {icon, children} = this.props;
     return (
@@ -51,7 +44,7 @@ class RadioButton extends WixComponent {
                 style-state={{labelAlignTop: vAlign === 'top'}}
                 >
                 <label className="radioLabel" data-hook="radio-label">
-                  <div className={styles.children}>
+                  <div className="children">
                     {this.props.children}
                   </div>
                 </label>
