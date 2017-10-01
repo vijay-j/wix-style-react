@@ -2,14 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './styles.scss';
 
-const Footer = ({children}) =>
-  <div className={styles.footer} data-hook="menu-footer">
-    {children}
-  </div>;
+class Footer extends React.PureComponent {
+  static propTypes = {
+    children: PropTypes.nodes
+  }
 
-Footer.propTypes = {
-  children: PropTypes.node
-};
+  render() {
+    const {children} = this.props;
+    return (
+      <div className={styles.footer} data-hook="menu-footer">
+        {children}
+      </div>
+    );
+  }
+}
 
 export default Footer;
-

@@ -2,14 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './styles.scss';
 
-const Promotion = ({children}) =>
-  <div className={styles.promotion} data-hook="menu-promotion">
-    {children}
-  </div>;
+class Promotion extends React.PureComponent {
+  static propTypes = {
+    children: PropTypes.node
+  };
 
-Promotion.propTypes = {
-  children: PropTypes.node
-};
+  render() {
+    const {children} = this.props;
+    return (
+      <div className={styles.promotion} data-hook="menu-promotion">
+        {children}
+      </div>
+    );
+  }
+}
 
 export default Promotion;
-

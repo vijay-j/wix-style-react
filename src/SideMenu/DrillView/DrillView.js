@@ -6,6 +6,16 @@ import SlideAnimation, {SlideDirection} from '../../Animations/SlideAnimation';
 import styles from './DrillView.scss';
 
 class SideMenuDrill extends WixComponent {
+  static defaultProps = {
+    inFlex: false
+  };
+
+  static propTypes = {
+    children: node,
+    inFlex: bool,
+    menuKey: string
+  };
+
   constructor(props) {
     super(props);
 
@@ -16,7 +26,7 @@ class SideMenuDrill extends WixComponent {
       showMenuA: true,
       slideDirection: SlideDirection.left
     };
-
+    this.linkComponent = props.linkComponent || SideMenuDrill.Link;
     this.processChildren({props: this.props}, state);
     this.state = state;
   }
@@ -87,7 +97,7 @@ class SideMenuDrill extends WixComponent {
   selectFirstLinkChild(menu, event) {
     let found = false;
     Children.forEach(menu.props.children, child => {
-      if (!found && child.type === SideMenuDrill.Link) {
+      if (!found && child.type === this.linkComponent) {
         this.clickFirstClickableChild(child, event);
         found = true;
       }
@@ -134,7 +144,7 @@ class SideMenuDrill extends WixComponent {
   }
 
   cloneChild(menu, state, parentMenuKey, childrenClone) {
-    if (menu.type === SideMenuDrill.Link && menu.props.isActive) {
+    if (menu.type === this.linkComponent && menu.props.isActive) {
       this.setSelectedItemMenu(parentMenuKey, state);
       state.menus[parentMenuKey].isActive = true;
     }
@@ -148,7 +158,7 @@ class SideMenuDrill extends WixComponent {
 
   processChildren(menu, state, parentMenuKey, level = 0) {
     const childrenClone = Children.map(menu.props.children, child => {
-      if (child && child.props && child.props.children) {
+      if (child && child.props) {
         const menuKey = menu.props.menuKey || parentMenuKey;
 
         if (!state.menus[menuKey]) {
@@ -205,16 +215,5 @@ class SideMenuDrill extends WixComponent {
     );
   }
 }
-
-SideMenuDrill.defaultProps = {
-  inFlex: false,
-  menuKey: 'root'
-};
-
-SideMenuDrill.propTypes = {
-  inFlex: bool,
-  menuKey: string,
-  children: node
-};
 
 export default SideMenuDrill;

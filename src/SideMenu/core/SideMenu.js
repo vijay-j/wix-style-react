@@ -3,26 +3,29 @@ import styles from './styles.scss';
 import classNames from 'classnames';
 import {node, bool} from 'prop-types';
 
-const SideMenu = ({children, inFlex}) => {
-  const rootStyles = classNames({
-    [styles.root]: true,
-    [styles.inFlex]: inFlex
-  });
+class SideMenu extends React.PureComponent {
+  static propTypes = {
+    children: node,
+    inFlex: bool,
+  };
 
-  return (
-    <div className={rootStyles} data-hook="side-menu">
-      {children}
-    </div>
-  );
-};
+  static defaultProps = {
+    inFlex: false,
+  };
 
-SideMenu.defaultProps = {
-  inFlex: false
-};
+  render() {
+    const {children, inFlex} = this.props;
+    const rootStyles = classNames({
+      [styles.root]: true,
+      [styles.inFlex]: inFlex
+    });
 
-SideMenu.propTypes = {
-  inFlex: bool,
-  children: node
-};
+    return (
+      <div className={rootStyles} data-hook="side-menu">
+        {children}
+      </div>
+    );
+  }
+}
 
 export default SideMenu;

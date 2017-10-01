@@ -7,61 +7,65 @@ import NavigationLink from '../core/navigation/Link';
 import NavigationBackLink from '../core/navigation/BackLink';
 import NavigationCategory from '../core/navigation/Category';
 
-const SubMenu = ({children, title, isOpen, isActive, onSelectHandler, onBackHandler, backLabel, showCategory, badge, linkDataHook}) => {
-  if (!isOpen) {
+class SubMenu extends React.PureComponent {
+  static defaultProps = {
+    isActive: false,
+    isOpen: false,
+    onSelectHandler: () => {},
+    onBackHandler: () => {},
+    backLabel: 'Back',
+    showCategory: true,
+    linkDataHook: 'menu-drill-sub-menu-link'
+  };
 
-    return (
-      <NavigationLink isActive={isActive} onClick={onSelectHandler} badge={badge} withArrow={!badge} data-hook={linkDataHook}>
-        {title}
-      </NavigationLink>
-    );
-  }
+  static propTypes = {
+    menuKey: string.isRequired,
+    title: string.isRequired,
+    isActive: bool,
+    isOpen: bool,
+    onSelectHandler: func,
+    onBackHandler: func,
+    backLabel: string,
+    showCategory: bool,
+    badge: node,
+    linkDataHook: string,
+    children: node.isRequired
+  };
 
-  const wrappedNavigation = Children.map(children, child => {
-    if (child.type === SideMenuDrill.Navigation) {
+  render() {
+    const {children, title, isOpen, isActive, onSelectHandler, onBackHandler, backLabel, showCategory, badge, linkDataHook} = this.props;
+
+    if (!isOpen) {
+
       return (
-        <div className={styles.openSubMenu}>
-          <NavigationBackLink onBackHandler={onBackHandler}>{backLabel}</NavigationBackLink>
-          {showCategory && <NavigationCategory>{title}</NavigationCategory>}
-          <Navigation>
-            {child.props.children}
-          </Navigation>
-        </div>
+        <NavigationLink isActive={isActive} onClick={onSelectHandler} badge={badge} withArrow={!badge} data-hook={linkDataHook}>
+          {title}
+        </NavigationLink>
       );
     }
 
-    return child;
-  });
+    const wrappedNavigation = Children.map(children, child => {
+      if (child.type === SideMenuDrill.Navigation) {
+        return (
+          <div className={styles.openSubMenu}>
+            <NavigationBackLink onBackHandler={onBackHandler}>{backLabel}</NavigationBackLink>
+            {showCategory && <NavigationCategory>{title}</NavigationCategory>}
+            <Navigation>
+              {child.props.children}
+            </Navigation>
+          </div>
+        );
+      }
 
-  return (
-    <div className={styles.subMenu} data-hook="menu-drill-sub-menu">
-      {wrappedNavigation}
-    </div>
-  );
-};
+      return child;
+    });
 
-SubMenu.defaultProps = {
-  isActive: false,
-  isOpen: false,
-  onSelectHandler: () => {},
-  onBackHandler: () => {},
-  backLabel: 'Back',
-  showCategory: true,
-  linkDataHook: 'menu-drill-sub-menu-link'
-};
-
-SubMenu.propTypes = {
-  menuKey: string.isRequired,
-  title: string.isRequired,
-  isActive: bool,
-  isOpen: bool,
-  onSelectHandler: func,
-  onBackHandler: func,
-  backLabel: string,
-  showCategory: bool,
-  badge: node,
-  linkDataHook: string,
-  children: node.isRequired
-};
+    return (
+      <div className={styles.subMenu} data-hook="menu-drill-sub-menu">
+        {wrappedNavigation}
+      </div>
+    );
+  }
+}
 
 export default SubMenu;
