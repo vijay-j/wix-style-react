@@ -32,6 +32,8 @@ datePickerPolyfills(window, global);
 | inputDataHook | string | '' | - | dataHook for the DatePicker's Input |
 | customInput | node | Input | - | Can provide Input with your custom props |
 | shouldCloseOnSelect | bool | true | - | should the calendar close on day selection |
+| isOpen | bool | false | - | overrides internal state.open |
+| setOpen | func | - | - | called upon every state.open value change |
 
 ## Keyboard support
 
