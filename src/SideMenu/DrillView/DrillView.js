@@ -79,31 +79,34 @@ class SideMenuDrill extends WixComponent {
     this.setState({currentMenuId: nextMenuId, previousMenuId, showMenuA, slideDirection});
   }
 
-  clickFirstClickableChild(item, event) {
-    let found = false;
-    if (item.props.onClick) {
-      item.props.onClick(event);
-      return true;
-    }
+  // clickFirstClickableChild(item, event) {
+  //   let found = false;
+  //   if (item.props.onClick) {
+  //     item.props.onClick(event);
+  //     return true;
+  //   }
 
-    Children.forEach(item.props.children, child => {
-      if (!found && child.props) {
-        found = this.clickFirstClickableChild(child, event);
-      }
-    });
-    return found;
-  }
+  //   Children.forEach(item.props.children, child => {
+  //     if (!found && child.props) {
+  //       found = this.clickFirstClickableChild(child, event);
+  //     }
+  //   });
+  //   return found;
+  // }
 
-  selectFirstLinkChild(menu, event) {
+  selectFirstLinkChild(menu) {
     let found = false;
     Children.forEach(menu.props.children, child => {
       if (!found && child.type === this.linkComponent) {
-        this.clickFirstClickableChild(child, event);
+        // this.clickFirstClickableChild(child, event);
+        const menuItemId = child.props.menuItemId;
+        const customEvent = new CustomEvent(menuItemId + '-clicked');
+        document.dispatchEvent(customEvent);
         found = true;
       }
 
       if (!found && child.props && child.props.children) {
-        this.selectFirstLinkChild(child, event);
+        this.selectFirstLinkChild(child);
       }
     });
   }
