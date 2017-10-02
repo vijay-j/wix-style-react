@@ -69,6 +69,8 @@ export default class DatePicker extends WixComponent {
     const cssClasses = [css.wrapper];
     if (this.props.showYearDropdown || this.props.showMonthDropdown) {
       cssClasses.push({'react-datepicker--hide-header': true});
+    } else {
+      cssClasses.push({'react-datepicker--hide-header__dropdown': true});
     }
     return (
       <div className={classnames(cssClasses)}>

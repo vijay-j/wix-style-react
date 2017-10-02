@@ -138,7 +138,7 @@ $calendarMargin: 15px;
     display: flex;
     justify-content: center;
     margin-top: -20px;
-    padding: 15px 0;
+    padding: 20px 0;
 }
 :global(.react-datepicker__year-read-view),
 :global(.react-datepicker__month-read-view) {
@@ -197,7 +197,7 @@ $calendarMargin: 15px;
 :global(.react-datepicker__day--selected) {
     background-color: $B10 !important;
     color: #FFF !important;
-    box-shadow: 0 0 0 5px $B10 !important;
+    box-shadow: 0 0 0 6px $B10 !important;
 }
 :global(.react-datepicker__day--keyboard-selected) {
     @include hover-circle($B10);
@@ -228,6 +228,11 @@ $calendarMargin: 15px;
     .react-datepicker--hide-header{
         .react-datepicker__navigation--previous, .react-datepicker__navigation--next {
             top: -13px;
+        }
+    }
+    .react-datepicker--hide-header__dropdown{
+        .react-datepicker__header__dropdown.react-datepicker__header__dropdown--scroll {
+            display:none;
         }
     }
 }
