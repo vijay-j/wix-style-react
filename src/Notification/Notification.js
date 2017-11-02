@@ -112,21 +112,23 @@ class Notification extends WixComponent {
     return this.props.show && !this.state.hideByCloseClick && !this.state.hideByTimer;
   }
 
-  getWrapperClassNames() {
+  getWrapperClassNames(childrenComponents) {
     const {
       type,
-      theme,
-      size
+      theme
     } = this.props;
 
     const position = notificationTypeToPosition[type];
 
-    return classNames({
-      [css.notificationWrapper]: true,
-      [css[`${theme}Theme`]]: true,
-      [css[`${size}Size`]]: true,
-      [css[`${position}Position`]]: true
-    });
+    return classNames(
+      css.notificationWrapper,
+      css[`${theme}Theme`],
+      {
+        [css.bigSize]: !!childrenComponents.ctaButton,
+        [css.smallSize]: !childrenComponents.ctaButton
+      },
+      css[`${position}Position`]
+    );
   }
 
   renderLabel(component) {
@@ -180,7 +182,7 @@ class Notification extends WixComponent {
         >
         <div
           data-hook="notification-wrapper"
-          className={this.getWrapperClassNames()}
+          className={this.getWrapperClassNames(childrenComponents)}
           style={{zIndex}}
           >
           <div className={css.contentWrapper}>
@@ -207,7 +209,6 @@ class Notification extends WixComponent {
 Notification.propTypes = {
   show: PropTypes.bool,
   theme: PropTypes.oneOf(['standard', 'error', 'success', 'warning', 'premium']),
-  size: PropTypes.oneOf(['small', 'big']),
   type: PropTypes.oneOf([GLOBAL_NOTIFICATION, LOCAL_NOTIFICATION, STICKY_NOTIFICATION]),
   timeout: PropTypes.number,
   zIndex: PropTypes.number,
@@ -217,7 +218,6 @@ Notification.propTypes = {
 
 Notification.defaultProps = {
   theme: 'standard',
-  size: 'small',
   type: GLOBAL_NOTIFICATION,
   onClose: null
 };

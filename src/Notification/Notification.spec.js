@@ -76,16 +76,6 @@ describe('Notification', () => {
       const driver = createDriver(renderNotificationWithProps({show: true}));
       expect(driver.isSmallSize()).toBeTruthy();
     });
-
-    it('should support standard height', () => {
-      const driver = createDriver(renderNotificationWithProps({show: true, size: 'small'}));
-      expect(driver.isSmallSize()).toBeTruthy();
-    });
-
-    it('should support a big height', () => {
-      const driver = createDriver(renderNotificationWithProps({show: true, size: 'big'}));
-      expect(driver.isBigSize()).toBeTruthy();
-    });
   });
 
   describe('Content', () => {
@@ -144,6 +134,22 @@ describe('Notification', () => {
         driver.clickOnActionButton();
 
         expect(onClickMock).toBeCalled();
+      });
+
+      it('should cause a big notification size', () => {
+        const driver = createDriver(
+          <Notification show>
+            <Notification.TextLabel>
+              label
+            </Notification.TextLabel>
+            <Notification.ActionButton>
+              action
+            </Notification.ActionButton>
+            <Notification.CloseButton/>
+          </Notification>
+        );
+
+        expect(driver.isBigSize()).toBeTruthy();
       });
     });
 
