@@ -98,6 +98,7 @@
     "deep-eql": "^3.0.0",
     "difference": "^1.0.2",
     "github-markdown-css": "^2.4.1",
+    "glamor": "^2.20.40",
     "highlight.js": "^9.8.0",
     "is-image": "^1.0.1",
     "is-url": "^1.2.2",
@@ -135,7 +136,12 @@
   },
   "babel": {
     "presets": [
-      [ "es2015", { "modules": false } ],
+      [
+        "es2015",
+        {
+          "modules": false
+        }
+      ],
       "react",
       "stage-2"
     ]
@@ -150,7 +156,10 @@
       "react/no-find-dom-node": 0,
       "react/no-string-refs": 0,
       "react/jsx-boolean-value": 2,
-      "comma-dangle": ["error", "never"]
+      "comma-dangle": [
+        "error",
+        "never"
+      ]
     }
   },
   "resolutions": {
