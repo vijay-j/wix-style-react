@@ -57,7 +57,9 @@ class RadioButton extends WixComponent {
               onChange={() => (!checked && !disabled) ? onChange(value) : null}
               />
             <label style={{lineHeight}} htmlFor={this.id} className={labelClasses} data-hook="radio-label">
-              <div className={radioClasses}/>
+              <div style={{height: lineHeight}} className={styles.radioButtonWrapper}>
+                <div className={radioClasses}/>
+              </div>
               <div className={styles.children}>
                 {this.props.children}
               </div>

@@ -7,7 +7,16 @@ import FieldLabelAttributes from '../../FieldLabelAttributes/FieldLabelAttribute
 
 class InputAreaWithLabelComposite extends WixComponent {
   getFieldLabelAttributesComponent() {
-    return <FieldLabelAttributes appendToParent={this.props.appendToParent} required={this.props.required} info={this.props.info}/>;
+    return (<FieldLabelAttributes
+      appendToParent={this.props.appendToParent}
+      required={this.props.required}
+      info={this.props.info}
+      tooltip={this.props.tooltip}
+      />);
+  }
+
+  shouldShowFieldLabelAttributesComponent() {
+    return this.props.required || this.props.info || this.props.tooltip;
   }
 
   render() {
@@ -17,10 +26,10 @@ class InputAreaWithLabelComposite extends WixComponent {
         { children.length === 2 ?
           <div className={styles.label}>
             {children[0]}
-            { this.props.required || this.props.info ? this.getFieldLabelAttributesComponent() : null }
+            { this.shouldShowFieldLabelAttributesComponent() ? this.getFieldLabelAttributesComponent() : null }
           </div> : null
         }
-        { children.length === 1 && (this.props.required || this.props.info) ?
+        { children.length === 1 && this.shouldShowFieldLabelAttributesComponent() ?
           (
             <div className={styles.withLabelAttributes}>
               <div className={styles.inputWrapper}>
@@ -41,7 +50,8 @@ InputAreaWithLabelComposite.propTypes = {
   children: any,
   required: bool,
   appendToParent: bool,
-  info: node
+  info: node,
+  tooltip: node
 };
 
 InputAreaWithLabelComposite.defaultProps = {

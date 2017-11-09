@@ -15,7 +15,6 @@ class RadioGroup extends WixComponent {
   constructor(props) {
     super(props);
     this.name = uniqueId('RadioGroup_');
-    console.log('Warning: RadioGroup lineHeight props will change from 24px to 17px by default starting from the 16/11/17');
   }
 
   render() {

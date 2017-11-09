@@ -6,6 +6,7 @@ import InputArea from '../../InputArea';
 import Checkbox from '../../Checkbox';
 import FieldWithSelectionCompositeDriverFactory from './FieldWithSelectionComposite.driver';
 import {createDriverFactory} from '../../test-common';
+import Tooltip from '../../Tooltip/Tooltip';
 
 describe('FieldWithSelectionComposite', () => {
   const createCompositeDriverFactory = createDriverFactory(FieldWithSelectionCompositeDriverFactory);
@@ -57,6 +58,12 @@ describe('FieldWithSelectionComposite', () => {
 
     it('should FieldLabelAttributes exists if info', () => {
       const driver = createCompositeDriverFactory(<FieldWithSelectionComposite info="info"><Label/><InputArea/><Checkbox/></FieldWithSelectionComposite>);
+
+      expect(driver.hasFieldLabelAttributes()).toBe(true);
+    });
+
+    it('should FieldLabelAttributes exists if tooltip', () => {
+      const driver = createCompositeDriverFactory(<FieldWithSelectionComposite tooltip={<Tooltip content="content"/>}><Label/><InputArea/><Checkbox/></FieldWithSelectionComposite>);
 
       expect(driver.hasFieldLabelAttributes()).toBe(true);
     });

@@ -172,3 +172,9 @@ button.radioButton {
     flex-direction: row-reverse;
   }
 }
+
+.radio-button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

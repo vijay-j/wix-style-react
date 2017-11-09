@@ -4,6 +4,7 @@ import Label from '../../Label';
 import Input from '../../Input';
 import rangeCompositeDriverFactory from './RangeWithLabelComposite.driver';
 import {createDriverFactory} from '../../test-common';
+import Tooltip from '../../Tooltip/Tooltip';
 
 describe('RangeInputWithLabelComposite', () => {
   const createRangeCompositeDriver = createDriverFactory(rangeCompositeDriverFactory);
@@ -39,6 +40,11 @@ describe('RangeInputWithLabelComposite', () => {
 
       expect(driver.hasFieldLabelAttributes()).toBe(true);
     });
-  });
 
+    it('should FieldLabelAttributes exists if tooltip', () => {
+      const driver = createRangeCompositeDriver(<RangeInputWithLabelComposite tooltip={<Tooltip content="content"/>}><Label>myLabel</Label><Input/><Input/></RangeInputWithLabelComposite>);
+
+      expect(driver.hasFieldLabelAttributes()).toBe(true);
+    });
+  });
 });

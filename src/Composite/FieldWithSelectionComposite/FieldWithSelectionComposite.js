@@ -35,8 +35,8 @@ class FieldWithSelectionComposite extends WixComponent {
     const label = children.length === 3 ? (
       <div className={styles.label}>
         {children[0]}
-        { this.props.required || this.props.info ? <FieldLabelAttributes required={this.props.required} info={this.props.info}/> : null }
-      </div>) : null;
+        { this.props.required || this.props.info || this.props.tooltip ?
+          <FieldLabelAttributes required={this.props.required} info={this.props.info} tooltip={this.props.tooltip}/> : null }</div>) : null;
     const textInput = this._getTextInput();
     const selectionInput = label ? children[2] : children[1];
     const selectionInputType = selectionInput.type.name;

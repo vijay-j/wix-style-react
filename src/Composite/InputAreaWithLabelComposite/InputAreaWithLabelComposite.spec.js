@@ -8,6 +8,7 @@ import textAreaDriverFactory from '../../TextArea/TextArea.driver';
 import textFieldDriverFactory from '../../TextField/TextField.driver';
 import autoCompleteCompositeDriverFactory from '../../AutoCompleteComposite/AutoCompleteComposite.driver';
 import {createDriverFactory} from '../../test-common';
+import Tooltip from '../../Tooltip/Tooltip';
 
 describe('InputAreaWithLabelComposite', () => {
   const createTextAreaDriver = createDriverFactory(textAreaDriverFactory);
@@ -66,6 +67,18 @@ describe('InputAreaWithLabelComposite', () => {
 
     it('should FieldLabelAttributes exists if info and with one child', () => {
       const driver = createAutoCompleteDriver(<InputAreaWithLabelComposite info="info"><InputArea/></InputAreaWithLabelComposite>);
+
+      expect(driver.hasFieldLabelAttributes()).toBe(true);
+    });
+
+    it('should FieldLabelAttributes exists if tooltip', () => {
+      const driver = createAutoCompleteDriver(<InputAreaWithLabelComposite tooltip={<Tooltip content="content"/>}><Label>label</Label><InputArea/></InputAreaWithLabelComposite>);
+
+      expect(driver.hasFieldLabelAttributes()).toBe(true);
+    });
+
+    it('should FieldLabelAttributes exists if tooltip and with one child', () => {
+      const driver = createAutoCompleteDriver(<InputAreaWithLabelComposite tooltip={<Tooltip content="content"/>}><InputArea/></InputAreaWithLabelComposite>);
 
       expect(driver.hasFieldLabelAttributes()).toBe(true);
     });
