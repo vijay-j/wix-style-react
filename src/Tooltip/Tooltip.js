@@ -120,11 +120,6 @@ class Tooltip extends WixComponent {
       visible: false,
       hidden: true
     };
-
-    console.warn('Tooltip: Some UX changes will be applied from the 09/11/2017:');
-    console.warn('1. tooltip\'s width will be measured for the border of the toltip, not for the inner content');
-    console.warn('2. default maxwidth prop will be 204px instead of 378px');
-    console.warn('3. default textAlign prop will be left instead of center');
   }
 
   componentElements() {
