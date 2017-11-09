@@ -47,6 +47,11 @@ const tooltipDriverFactory = ({element, wrapper}) => {
       const values = content.style._values;
       return values['min-width'];
     },
+    getAlignment: () => {
+      const content = getTooltipContent();
+      const values = content.style._values;
+      return values['text-align'];
+    },
     getPadding: () => {
       const content = getTooltipContent();
       const values = content.style._values;
