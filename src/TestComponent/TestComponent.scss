@@ -1,0 +1,137 @@
+@import '../common.scss';
+
+.wrapper {
+    display: inline-block;
+}
+
+.wrapper > label {
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper > input
+{
+    display:none;
+}
+
+:global(.rtl) .wrapper > label {
+    direction: rtl;
+}
+
+.testComponent {
+    position: relative;
+    width: 16px;
+    min-width: 16px;
+    height: 16px;
+    min-height: 16px;
+    border: 1px solid $B10;
+    border-radius: 4px;
+    box-sizing:border-box;
+}
+
+.testComponent.large {
+    width: 20px;
+    height: 20px;
+}
+
+.testComponent>.inner {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 14px;
+    height: 14px;
+    color: $D80;
+}
+
+.testComponent.large>.inner {
+    width: 18px;
+    height: 18px;
+}
+
+.indeterminate {
+    background-color: $D80;
+    width: 8px;
+    height: 2px;
+}
+
+.testComponent>.inner>svg {
+    width:9px;
+    height:9px;
+}
+
+.testComponent.large>.inner>svg {
+    width:13px;
+    height:13px;
+}
+
+.testComponent>.inner>svg>path {
+    fill:#fff;
+}
+
+:global(.ltr) .children, .children {
+    padding-left:12px;
+}
+
+:global(.rtl) .children {
+    padding-right:12px;
+}
+
+/* Checked State */
+
+.wrapper.checked .testComponent {
+    background-color: $B10;
+}
+
+.wrapper.checked .testComponent >.inner {
+    opacity: 1;
+}
+
+/* Unchecked State */
+
+.wrapper.unchecked .testComponent {
+    background-color: $D80;
+}
+
+.wrapper.unchecked .testComponent > .inner {
+    opacity: 0;
+}
+
+.wrapper.unchecked:hover .testComponent, .wrapper.unchecked.hover .testComponent {
+    background-color: $B40;
+}
+
+.wrapper.unchecked:active .testComponent, .wrapper.unchecked.active .testComponent {
+    background-color: $B20;
+}
+
+.wrapper.unchecked:active .testComponent>.inner, .wrapper.unchecked.active .testComponent>.inner {
+    opacity: 1;
+}
+
+/* Disabled State */
+
+.wrapper.disabled {
+    pointer-events: none;
+    cursor: default;
+}
+
+.wrapper.disabled .testComponent, .wrapper.disabled:hover .testComponent, .wrapper.disabled.hover .testComponent,
+.wrapper.disabled.active .testComponent, .wrapper.disabled:active .testComponent {
+    border-color: $GR20;
+    background-color: $GR30;
+}
+
+.wrapper.disabled.checked .testComponent, .wrapper.disabled.checked:hover .testComponent, .wrapper.disabled.checked.hover .testComponent,
+.wrapper.disabled.checked.active .testComponent, .wrapper.disabled.checked:active .testComponent {
+    background-color: $GR20;
+}
+
+/* Error State */
+.wrapper.hasError .testComponent {
+    border-color: $R10;
+}

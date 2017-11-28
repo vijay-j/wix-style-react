@@ -57,6 +57,9 @@ export const tagTestkitFactory = enzymeTestkitFactoryCreator(tagDriverFactory);
 import checkboxDriverFactory from '../src/Checkbox/Checkbox.driver';
 export const checkboxTestkitFactory = enzymeTestkitFactoryCreator(checkboxDriverFactory);
 
+import testComponentDriverFactory from '../src/TestComponent/TestComponent.driver';
+export const testComponentTestkitFactory = enzymeTestkitFactoryCreator(testComponentDriverFactory);
+
 import buttonDriverFactory from '../src/Backoffice/Button/Button.driver';
 export const buttonTestkitFactory = enzymeTestkitFactoryCreator(buttonDriverFactory);
 

@@ -39,6 +39,9 @@ export const autoCompleteTestkitFactory = protractorTestkitFactoryCreator(autoCo
 import checkboxDriverFactory from '../src/Checkbox/Checkbox.protractor.driver';
 export const checkboxTestkitFactory = protractorTestkitFactoryCreator(checkboxDriverFactory);
 
+import testComponentDriverFactory from '../src/TestComponent/TestComponent.protractor.driver';
+export const testComponentTestkitFactory = protractorTestkitFactoryCreator(testComponentDriverFactory);
+
 import dropdownDriverFactory from '../src/Dropdown/Dropdown.protractor.driver';
 export const dropdownTestkitFactory = protractorTestkitFactoryCreator(dropdownDriverFactory);
 

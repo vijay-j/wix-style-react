@@ -57,6 +57,9 @@ export const tagTestkitFactory = testkitFactoryCreator(tagDriverFactory);
 import checkboxDriverFactory from '../src/Checkbox/Checkbox.driver';
 export const checkboxTestkitFactory = testkitFactoryCreator(checkboxDriverFactory);
 
+import testComponentDriverFactory from '../src/TestComponent/TestComponent.driver';
+export const testComponentTestkitFactory = testkitFactoryCreator(testComponentDriverFactory);
+
 import buttonDriverFactory from '../src/Backoffice/Button/Button.driver';
 export const buttonTestkitFactory = testkitFactoryCreator(buttonDriverFactory);
 

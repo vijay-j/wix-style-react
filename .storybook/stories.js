@@ -78,6 +78,7 @@ import '../stories/Search'; // 3.9 Search
 import '../stories/AutoCompleteComposite'; // 4.1 Dropdown
 import '../stories/Checkbox'; // 4.2 Checkbox
 import '../stories/RadioGroup'; // 4.3 RadioGroup
+import '../stories/TestComponent' // 4.4 TestComponent
 import '../stories/IconWithOptions'; // 4.5 IconWithOptions
 import '../stories/GoogleAddressInputWithLabel'; // 4.8 Google address input
 import '../stories/EditableSelector'; // 4.9 EditableSelector
