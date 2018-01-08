@@ -1,0 +1,54 @@
+@import './tagListInput';
+@import './itemCheckbox';
+@import '../common';
+
+.multi-level-checkbox {
+  user-select: none;
+  width: 300px;
+  position: relative;
+  z-index: 1;
+  margin-left: 30px;
+  padding-top: 9px;
+  
+  .tree-view {
+    position: relative;
+    width: 310px;
+    min-height: 250px;
+    border-radius: 8px;
+    background-color: $D80;
+    box-shadow: 0 1px 16px 0 rgba(0, 0, 0, 0.14);
+    max-height: 296px;
+    overflow-y: auto;
+    z-index: -1;
+    
+    .tree-view-section {
+      text-align: left;
+      background-color: $D70;
+      padding-left: 23px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      
+      >h5{
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
+    
+    .not-found-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      height: 250px;
+      
+      .not-found-text {
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 1.5;
+        color: $D30;
+      }
+    }
+  }
+}

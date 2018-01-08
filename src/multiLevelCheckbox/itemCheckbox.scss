@@ -1,0 +1,29 @@
+@import '../common';
+
+.multi-level-checkbox-item {
+  position: relative;
+  margin: 12px 0;
+  left: 23px;
+
+  &.multi-level-checkbox-item-root {
+    left: 23px;
+  }
+
+  .checkbox {
+    display: inline-block;
+  }
+
+  .arrow {
+    color: $B10;
+    padding-left: 11px;
+
+    svg {
+      width: 9px;
+      height: 9px;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
