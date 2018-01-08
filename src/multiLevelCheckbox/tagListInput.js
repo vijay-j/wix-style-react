@@ -53,7 +53,7 @@ class TagListInput extends React.Component {
     return (
       <div className={styles.tagListInput} onClick={this.onTagListClicked} style={this.getStyle()}>
         {tags}
-        <div id={styles.filterTextField}>
+        <div className={styles.filterTextField}>
           <TextField>
             <ThemedInput
               id="filter-text-field"

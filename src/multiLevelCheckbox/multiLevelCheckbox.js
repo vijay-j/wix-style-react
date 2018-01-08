@@ -17,15 +17,12 @@ import ItemCheckbox from './itemCheckbox';
 import Text from '../Text';
 import styles from './multiLevelCheckbox.scss';
 import withClickOutside from '../withClickOutside';
-import _ from 'lodash';
 // import {NoSearchResults} from 'wix-style-react/Icons';
 
 //TODO:
 //1. Add NoSearchResults icon
 //2. Tests
 //3. Documentation + story
-//5. scss - Tree view width should be 2px more that taglist
-// 6. Remove using _
 
 const expandedByDefault = true;
 
@@ -164,7 +161,7 @@ class MultiLevelCheckbox extends React.Component {
 
       const allItemChecked = every(areAllItemsInSectionSelected, matchingItems);
 
-      return getAllItemsObject(this.props.allItems, allItemChecked).concat(matchingItems);
+      return [getAllItemsObject(this.props.allItems, allItemChecked), ...matchingItems];
     }
     return matchingItems;
   }
@@ -211,13 +208,13 @@ class MultiLevelCheckbox extends React.Component {
           </div>
         ) : null}
 
-        {_.map(section.items, item => this.renderItem(item))}
+        {map(item => this.renderItem(item), section.items)}
       </div>
     );
   }
 
   renderTreeView() {
-    return _.map(this.itemList, section => this.renderSection(section));
+    return map(section => this.renderSection(section), this.itemList);
   }
 
   render() {
