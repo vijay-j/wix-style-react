@@ -17,7 +17,6 @@ import ItemCheckbox from './itemCheckbox';
 import Checkbox from '../checkbox';
 import tagListInputCss from './tagListInput.scss';
 import multiLevelCheckboxCss from './multiLevelCheckbox.scss';
-import ThemedInput from "../Input/ThemedInput";
 
 const collapsedValue =
   [
@@ -128,9 +127,10 @@ describe('multiLevelCheckbox', () => {
     ['props.item.label', label]);
 
   const getFilterTextField = () => {
-    return ReactTestUtils.findRenderedDOMComponentWithClass(comp, tagListInputCss.filterTextField);
-    // return ReactTestUtils.scryRenderedComponentsWithType(inputWrapper, ThemedInput);
+    return ReactTestUtils.findRenderedDOMComponentWithClass(comp, tagListInputCss.tagListInput);
   };
+
+  const getTreeView = () => document.body.querySelector('[data-hook=multilevel-checkbox-tree-view]');
 
   const getAllArrowItems = () => ReactTestUtils.scryRenderedDOMComponentsWithClass(comp, 'arrow-down-wrapper');
   const getAllUpArrowItems = () => ReactTestUtils.scryRenderedDOMComponentsWithClass(comp, 'up');
@@ -187,8 +187,7 @@ describe('multiLevelCheckbox', () => {
     it('should show checkbox tree view when clicking inside while tree view is hidden', done => {
       clickInside();
       comp.forceUpdate(() => {
-        const treeView = ReactTestUtils.findRenderedDOMComponentWithClass(comp, multiLevelCheckboxCss.treeView);
-        expect(treeView).toBeDefined();
+        expect(getTreeView()).toBeDefined();
         done();
       });
     });
@@ -197,8 +196,7 @@ describe('multiLevelCheckbox', () => {
       clickInside();
       clickInside();
       comp.forceUpdate(() => {
-        const treeView = ReactTestUtils.findRenderedDOMComponentWithClass(comp, multiLevelCheckboxCss.treeView);
-        expect(treeView).toBeDefined();
+        expect(getTreeView()).toBeDefined();
         done();
       });
     });

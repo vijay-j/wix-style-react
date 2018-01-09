@@ -234,7 +234,7 @@ class MultiLevelCheckbox extends React.Component {
           />
 
         {this.state.treeViewOpen ? (
-          <div className={styles.treeView} style={this.getTreeViewStyles()}>
+          <div className={styles.treeView} data-hook="multilevel-checkbox-tree-view" style={this.getTreeViewStyles()}>
             {this.renderTreeView()}
             {this.areAllFiltered(this.itemList) ? (
               <div className={styles.notFoundWrapper}>

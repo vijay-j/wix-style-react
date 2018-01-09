@@ -4,8 +4,8 @@ const PropTypes = require('prop-types');
 import map from 'lodash/map';
 import isEmpty from 'lodash/isEmpty';
 import Tag from '../Tag';
-import TextField from '..//TextField';
-import ThemedInput from '../Input/ThemedInput';
+// import TextField from '..//TextField';
+// import ThemedInput from '../Input/ThemedInput';
 import styles from './tagListInput.scss';
 
 class TagListInput extends React.Component {
@@ -53,20 +53,19 @@ class TagListInput extends React.Component {
     return (
       <div className={styles.tagListInput} onClick={this.onTagListClicked} style={this.getStyle()}>
         {tags}
-        <div className={styles.filterTextField}>
-          <TextField>
-            <ThemedInput
-              id="filter-text-field"
-              onChange={this.onFilterChanged}
-              ref={this.storeFilterTextInput} onFocus={this.onFilterTextFocus}
-              onKeyDown={this.handleKeyDown}
-              placeholder={tags.length === 0 ? this.props.placeholder : null}
-              border={'none'}
-              />
-          </TextField>
+        <div>
+          <input
+            id="filter-text-field"
+            data-hook="multilevel-checkbox-filter-text-field"
+            className={styles.filterTextField}
+            onChange={this.onFilterChanged}
+            ref={this.storeFilterTextInput} onFocus={this.onFilterTextFocus}
+            onKeyDown={this.handleKeyDown}
+            placeholder={tags.length === 0 ? this.props.placeholder : null}
+            style={{border: 'none'}}
+            />
         </div>
       </div>
-
     );
   }
 }
