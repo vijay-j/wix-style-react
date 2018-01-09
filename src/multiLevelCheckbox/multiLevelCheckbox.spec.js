@@ -18,6 +18,7 @@ import Checkbox from '../checkbox';
 import tagListInputCss from './tagListInput.scss';
 import multiLevelCheckboxCss from './multiLevelCheckbox.scss';
 
+
 const collapsedValue =
   [
     {label: 'with sub items', value: '1', items:
