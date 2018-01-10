@@ -22,13 +22,18 @@
     text-align: left;
     color: $paletteD1;
     height: 34px;
+  
+    > div > div {
+      border: none;
+      height: 34px;
     
-    &:focus {
-      outline: none;
-    }
+      &:focus {
+        outline: none;
+      }
     
-    &:hover {
-      background-color: $D80;
+      &:hover {
+        background-color: $D80;
+      }
     }
   }
 }
