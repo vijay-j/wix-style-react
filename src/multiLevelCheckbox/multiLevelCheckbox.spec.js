@@ -14,7 +14,7 @@ import ReactTestUtils from 'react-dom/test-utils';
 import multiLevelCheckbox from './multiLevelCheckbox';
 import Tag from '../Tag';
 import ItemCheckbox from './itemCheckbox';
-import Checkbox from '../checkbox';
+import Checkbox from '../Checkbox';
 import tagListInputCss from './tagListInput.scss';
 import multiLevelCheckboxCss from './multiLevelCheckbox.scss';
 
