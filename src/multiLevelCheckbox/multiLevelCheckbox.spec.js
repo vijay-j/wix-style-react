@@ -155,7 +155,7 @@ describe('multiLevelCheckbox', () => {
   };
 
   const clickInside = () => {
-    ReactTestUtils.Simulate.focus(getFilterTextField(comp));
+    ReactTestUtils.Simulate.click(getFilterTextField(comp));
   };
 
   afterEach(() => {
