@@ -36,9 +36,9 @@ Instead, we are going to have 2 components:
 
 - `businessManagerCounter` ---> is only in use in CounterBadge
 
-- `prefixIcon` - Add an icon before the text.
+`prefixIcon` - Add an icon before the text.
 
-- `suffixIcon` - Add an icon after the text.
+`suffixIcon` - Add an icon after the text.
 
 ## Testkit Deprecations (e2e & unit)
 
