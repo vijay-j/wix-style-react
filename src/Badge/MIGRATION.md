@@ -5,14 +5,12 @@ The Badge component have 2 shapes: `ellipse` and `rectangle`.
 Instead, we are going to have 2 components:
 
 1. Badge - Replaces the Rectangle shaped badge.
- ![Badge](./assets/Badge.png)
 
 2. CounterBadge - Replaces the ellipse shaped badge (and should only look like a small pinple).
-![CounterBadge](./assets/CounterBadge.png)
 
 
 ## Deprecated props
-`alignment` - Deprecated because this is pure general layout configuration which defines how this component will be displayed with respect to it's environment. Such configuration is not in the component's responsibility.
+`alignment` - Deprecated because this is purly a general layout configuration which defines how this component will be displayed with respect to it's environment. Such configuration is not in the component's responsibility.
 
 `appearance` - Deprecated because according to the new design the only allowed appearance is `T5`.
 
