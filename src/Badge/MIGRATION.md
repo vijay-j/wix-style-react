@@ -43,3 +43,5 @@ Instead, we are going to have 2 components:
 ## Testkit Deprecations (e2e & unit)
 
 `isBadge`, `isOfAppearance`, `isOfAlignment` and `isOfShape` are deprecated due to the reasons mentioned before.
+
+Instead of `isBadge` use `exists`.
