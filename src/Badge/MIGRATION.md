@@ -21,16 +21,24 @@ Instead, we are going to have 2 components:
 `solid`is the default look, `outlined` is with transparen background and `transparent` is borderLess. Feel free to check the updated storybook.
 
 `skin` - This is the prop which controlls the color of the Badge. It has some new values which you should check out in the storybook, but these are the main important changes:
-`default` ---> `grey`
-`primary` -> changing a little bit and being renamed to `standard`
-`success` --> remains the same
-`info` --> changing a little bit and being renamed to `neutralStandard`
-`warning` ---> remains the same
-`danger` ---> remains the same
-`businessManagerCounter` ---> is only in use in CounterBadge
 
-`prefixIcon` - Add an icon before the text.
-`suffixIcon` - Add an icon after the text.
+- `default` ---> `grey`
+
+- `primary` -> changing a little bit and being renamed to `standard`
+
+- `success` --> remains the same
+
+- `info` --> changing a little bit and being renamed to `neutralStandard`
+
+- `warning` ---> remains the same
+
+- `danger` ---> remains the same
+
+- `businessManagerCounter` ---> is only in use in CounterBadge
+
+- `prefixIcon` - Add an icon before the text.
+
+- `suffixIcon` - Add an icon after the text.
 
 ## Testkit Deprecations (e2e & unit)
 
