@@ -17,7 +17,7 @@ Instead, we are going to have 2 components:
 `shape` - Deprecated because of the seperation into 2 components `Badge` & `CounterBadge`.
 
 ## New props
-`type` - This prop used to set the color of the Badge, but in the new version this prop will set the border type of the component:
+`type` - This prop used to set the color of the Badge, but in the new version this prop will have a different role. It's optional values are:
 `solid`is the default look, `outlined` is with transparen background and `transparent` is borderLess. Feel free to check the updated storybook.
 
 `skin` - This is the prop which controlls the color of the Badge. It has some new values which you should check out in the storybook, but these are the main important changes:
