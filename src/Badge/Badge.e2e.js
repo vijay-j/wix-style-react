@@ -14,7 +14,7 @@ describe('Badge', () => {
     autoExampleDriver.reset();
   });
 
-  eyes.it('should render given valid props', () => {
+  eyes.xit('should render given valid props', () => {
     autoExampleDriver.setProps({appearance: 'H2', type: 'primary', children: 'Primary H2'});
 
     waitForVisibilityOf(badgeDriver.element(), 'Cannot find <Badge/>')

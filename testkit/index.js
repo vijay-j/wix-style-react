@@ -174,9 +174,6 @@ export const fieldLabelAttributesTestkitFactory = testkitFactoryCreator(fieldLab
 import popoverMenuDriverFactory from '../src/PopoverMenu/PopoverMenu.driver';
 export const popoverMenuTestkitFactory = testkitFactoryCreator(popoverMenuDriverFactory);
 
-import badgeDriverFactory from '../src/Badge/Badge.driver';
-export const badgeTestkitFactory = testkitFactoryCreator(badgeDriverFactory);
-
 import datePickerDriverFactory from '../src/DatePicker/DatePicker.driver';
 export const datePickerTestkitFactory = testkitFactoryCreator(datePickerDriverFactory);
 
@@ -203,3 +200,8 @@ export const statsWidgetTestkitFactory = testkitFactoryCreator(statsWidgetDriver
 
 import modalSelectorLayoutDriverFactory from '../src/ModalSelectorLayout/ModalSelectorLayout.driver';
 export const modalSelectorLayoutTestkitFactory = testkitFactoryCreator(modalSelectorLayoutDriverFactory);
+
+
+// wix-ui-backoffice proxy
+
+export {badgeTestkitFactory} from 'wix-ui-backoffice/dist/src/testkit/vanilla';
