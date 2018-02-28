@@ -45,3 +45,6 @@ Instead, we are going to have 2 components:
 `isBadge`, `isOfAppearance`, `isOfAlignment` and `isOfShape` are deprecated due to the reasons mentioned before.
 
 Instead of `isBadge` use `exists`.
+
+## TPA Badge
+This component is deprecated as well. If you are using it for some reason, please let us know because we have an alternative supported solution.
