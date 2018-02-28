@@ -121,7 +121,6 @@
     "slate": "^0.20.3",
     "wix-animations": "^1.0.141",
     "wix-ui-backoffice": "^1.0.96",
-    "wix-ui-icons-common": "^1.0.6",
     "wix-ui-test-utils": "^1.0.0"
   },
   "jest": {

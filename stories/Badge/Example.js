@@ -1,6 +1,5 @@
 import React from 'react';
-import {Facebook, Email} from 'wix-ui-icons-common';
-// import {Facebook, Email} from 'wix-style-react/Icons';
+import {Email} from 'wix-style-react/Icons';
 import DropdownComposite from '../../src/DropdownComposite';
 import Dropdown from '../../src/Dropdown';
 import Label from '../../src/Label';
@@ -27,7 +26,7 @@ class ControlledBadgeExample extends React.Component {
     };
   }
   render() {
-    return(
+    return (
       <div className={style.container}>
         <div style={{width: '200px'}}>
           <h1> Props </h1>
@@ -40,14 +39,14 @@ class ControlledBadgeExample extends React.Component {
         </div>
         <div>
           <h1> Preview </h1>
-         
+
           <br/><br/><br/><br/><br/><br/>
-         
+
           <Badge
             skin={this.state.skin}
             type={this.state.type}
-            prefixIcon={this.state.prefixIcon == 'Email' ? <Email/> : null}
-            suffixIcon={this.state.suffixIcon == 'Email' ? <Email/> : null}
+            prefixIcon={this.state.prefixIcon === 'Email' ? <Email/> : null}
+            suffixIcon={this.state.suffixIcon === 'Email' ? <Email/> : null}
             data-hook="storybook-badge"
             >
             {this.state.children}
@@ -58,7 +57,4 @@ class ControlledBadgeExample extends React.Component {
   }
 }
 
-export default () =>
-  <div className="ltr">
-    <ControlledBadgeExample/>
-  </div>;
+export default () => <ControlledBadgeExample/>;
