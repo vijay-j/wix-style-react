@@ -204,4 +204,4 @@ export const modalSelectorLayoutTestkitFactory = testkitFactoryCreator(modalSele
 
 // wix-ui-backoffice proxy
 
-export {badgeTestkitFactory} from 'wix-ui-backoffice/dist/src/testkit/vanilla';
+export {badgeTestkitFactory} from 'wix-ui-backoffice/dist/src/testkit';
