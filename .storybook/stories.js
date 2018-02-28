@@ -108,7 +108,6 @@ import '../stories/TPA/Button';
 import '../stories/TPA/FloatingTabs';
 import '../stories/TPA/TextLink';
 import '../stories/TPA/Input';
-import '../stories/TPA/Badge';
 import '../stories/TPA/Label';
 
 // Themes
