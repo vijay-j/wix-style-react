@@ -861,6 +861,7 @@ $base-transition: all 100ms linear;
   background: transparent;
   color: $D10;
   border: none;
+  padding: 0;
   @extend .t1_2;
 
   &:hover {
