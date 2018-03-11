@@ -148,8 +148,10 @@ class DropdownLayout extends WixComponent {
 
   render() {
     const {options, visible, dropDirectionUp, tabIndex, fixedHeader, fixedFooter, withArrow, onMouseEnter, onMouseLeave} = this.props;
+    const whiteSpace = this.props.stretchable ? 'nowrap' : 'normal';
     const contentContainerClassName = classNames({
       [styles.contentContainer]: true,
+      [styles.stretchable]: this.props.stretchable,
       [styles.shown]: visible,
       [styles.up]: dropDirectionUp,
       [styles.down]: !dropDirectionUp,
@@ -160,7 +162,7 @@ class DropdownLayout extends WixComponent {
       <div tabIndex={tabIndex} className={classNames(styles.wrapper, styles[`theme-${this.props.theme}`])} onKeyDown={this._onKeyDown} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
         <div className={contentContainerClassName} style={{maxHeight: this.props.maxHeightPixels + 'px'}}>
           {this.renderNode(fixedHeader)}
-          <div className={styles.options} style={{maxHeight: this.props.maxHeightPixels - 35 + 'px'}} ref={options => this.options = options} data-hook="dropdown-layout-options">
+          <div className={styles.options} style={{maxHeight: this.props.maxHeightPixels - 35 + 'px', whiteSpace}} ref={options => this.options = options} data-hook="dropdown-layout-options">
             {options.map((option, idx) => (
               this.renderOption({option, idx})
             ))}
@@ -201,6 +203,7 @@ class DropdownLayout extends WixComponent {
 
     const optionClassName = classNames({
       [styles.option]: !overrideStyle,
+      [styles.stretchable]: this.props.stretchable,
       [styles.selected]: selected && !overrideStyle && selectedHighlight,
       wixstylereactSelected: selected && overrideStyle, //global class for items that use the overrideStyle
       [styles.hovered]: hovered && !overrideStyle,
@@ -298,7 +301,8 @@ DropdownLayout.propTypes = {
   onMouseEnter: PropTypes.func,
   onMouseLeave: PropTypes.func,
   itemHeight: PropTypes.oneOf(['small', 'big']),
-  selectedHighlight: PropTypes.bool
+  selectedHighlight: PropTypes.bool,
+  stretchable: PropTypes.bool
 };
 
 DropdownLayout.defaultProps = {
@@ -308,7 +312,8 @@ DropdownLayout.defaultProps = {
   maxHeightPixels: 260,
   closeOnSelect: true,
   itemHeight: 'small',
-  selectedHighlight: true
+  selectedHighlight: true,
+  stretchable: false
 };
 
 DropdownLayout.NONE_SELECTED_ID = NOT_HOVERED_INDEX;

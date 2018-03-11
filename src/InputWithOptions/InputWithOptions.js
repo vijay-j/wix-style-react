@@ -112,6 +112,7 @@ class InputWithOptions extends WixComponent {
           visible={isDropdownLayoutVisible}
           onClose={this.hideOptions}
           onSelect={this._onSelect}
+          stretchable={this.props.stretchable}
           isComposing={this.state.isComposing}
           />
       </div>

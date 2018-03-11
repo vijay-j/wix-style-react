@@ -45,6 +45,11 @@ $top-arrow-size: 8px;
   user-select: none;
 }
 
+.stretchable {
+  width: initial;
+  min-width: 100%;
+}
+
 .content-container.shown {
   visibility: visible;
   height: auto;

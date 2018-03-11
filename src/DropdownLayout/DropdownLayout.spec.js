@@ -77,6 +77,12 @@ describe('DropdownLayout', () => {
     expect(driver.optionContentAt(5)).toBe('Option 4');
   });
 
+  it('should stretch options container to the longest option text', () => {
+    const longOptions = [...options, ...{id: 7, value: 'I am very long text'}];
+    const driver = createDriver(<DropdownLayout options={longOptions}/>);
+    console.log(driver.optionsContent());
+  });
+
   it('should not hover any option by default', () => {
     const driver = createDriver(<DropdownLayout visible options={options}/>);
     expect(options.map((option, index) => driver.isOptionHovered(index))).not.toContain(true);

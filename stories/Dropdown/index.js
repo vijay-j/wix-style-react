@@ -35,6 +35,10 @@ storiesOf('4. Selection', module)
         <CodeExample title="Custom Values in Dropdown" code={ExampleWithCustomValueRaw}>
           <ExampleWithCustomValue/>
         </CodeExample>
+
+        <CodeExample title="Custom Values in Dropdown" code={ExampleWithCustomValueRaw}>
+          <ExampleWithCustomValue/>
+        </CodeExample>
       </div>
 
       <Markdown source={ReadmeTestkit}/>

@@ -9,6 +9,7 @@
 | options | array of option | [] | - | Array of objects. Objects must have an Id and can can include *value* and *node*. If value is '-', a divider will be rendered instead. |
 | onSelect | func | - | - | Callback function called whenever the user selects a different option in the list |
 | selectedId | string/number | - | - | The id of the selected option in the list |
+| stretchable | bool | false | - | Stretches the dropdown width to the widest option text |
 | placeholder | string | '' | - | Shown when no option is selected |
 | disabled | bool | false | - |  when set to true this component is disabled |
 | valueParser | func | option => option.value | - | function that extracts the value from an option |

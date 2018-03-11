@@ -10,7 +10,7 @@ const style = {
 };
 
 const options = [
-  {id: 0, value: 'Option 1'},
+  {id: 0, value: 'Very long option text'},
   {id: 1, value: 'Option 2'},
   {id: 2, value: 'Option 3'},
   {id: 3, value: 'Option 4'},
@@ -22,6 +22,13 @@ const rtlOptions = [
   {id: 1, value: 'אופציה 2'},
   {id: 2, value: 'אופציה 3'},
   {id: 3, value: 'אופציה 4'}
+];
+
+const optionsWithLongText = [
+  {id: 0, value: 'Very long option text'},
+  {id: 1, value: 'Option 2'},
+  {id: 2, value: 'Option 3'},
+  {id: 3, value: 'Option 4'}
 ];
 
 export default () =>
@@ -66,6 +73,12 @@ export default () =>
       <div className="rtl" style={style}>
         <div>With suffix RTL</div>
         <Dropdown options={options} dropDirectionUp suffix={<Input.Unit>%</Input.Unit>}/>
+      </div>
+    </div>
+    <div>
+      <div className="ltr" style={style}>
+        <div>Stretchable</div>
+        <Dropdown stretchable selectedId={0} options={optionsWithLongText}/>
       </div>
     </div>
   </div>;
