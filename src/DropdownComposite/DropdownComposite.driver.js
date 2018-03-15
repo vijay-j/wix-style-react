@@ -6,7 +6,7 @@ const dropdownCompositeDriverFactory = ({element, wrapper}) => {
 
   return {
     ...inputAreaWithLabelCompositeDriverFactory({element, wrapper}),
-    dropdownLayoutDriver: dropdownDriverFactory({element: dropdown, wrapper: dropdown}).dropdownLayoutDriver
+    ...dropdownDriverFactory({element: dropdown, wrapper: dropdown})
   };
 };
 
