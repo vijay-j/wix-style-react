@@ -3,6 +3,7 @@
   "description": "wix-style-react",
   "version": "2.0.30",
   "main": "./dist/src/index.js",
+  "module": "./dist/es/src/index.js",
   "files": [
     "dist",
     "src",
@@ -14,15 +15,15 @@
     "start": "./scripts/npm-start.sh",
     "pretest": "npm run lint && ./scripts/ensure-dist.sh",
     "test": "npm run test:unit && npm run test:e2e",
-    "test:unit": "haste test --jest",
+    "test:unit": "yoshi test --jest",
     "pretest:e2e": "./scripts/ensure-dist.sh",
     "test:e2e": "concurrently 'npm run test:e2e-only' 'node scripts/e2e-server.js' --names 'protractor,e2e-server' --success first --kill-others",
-    "test:e2e-only": "NODE_ENV=production haste test --protractor",
-    "build": "npm run lint && svg2react-icon && haste build && build-storybook && npm run export-components",
+    "test:e2e-only": "NODE_ENV=production yoshi test --protractor",
+    "build": "npm run lint && svg2react-icon && yoshi build && build-storybook && npm run export-components",
     "storybook": "start-storybook -p 6006",
     "release": "node scripts/npm-release.js",
     "export-components": "import-path --path src",
-    "lint": "haste lint"
+    "lint": "yoshi lint"
   },
   "yoshi": {
     "features": {
@@ -68,7 +69,6 @@
     "eyes.it": "^2.0.0",
     "gh-pages-auto-release": "^1.1.2",
     "github-markdown-css": "^2.4.1",
-    "haste-preset-yoshi": "^1.0.19",
     "highlight.js": "^9.8.0",
     "identity-obj-proxy": "^3.0.0",
     "import-path": "^1.0.0",
@@ -84,7 +84,8 @@
     "sinon": "^1.17.6",
     "svg2react-icon": "^1.0.0",
     "wait-for-cond": "^1.0.3",
-    "wix-storybook-utils": "^1.0.0"
+    "wix-storybook-utils": "^1.0.0",
+    "yoshi": "^2.0.0-beta.0"
   },
   "peerDependencies": {
     "react": "^15.0.0",
@@ -139,11 +140,12 @@
   },
   "babel": {
     "presets": [
-      "es2015",
+      ["es2015", { "modules": false }],
       "react",
       "stage-2"
     ]
   },
+  "side-effects": false,
   "eslintConfig": {
     "extends": "wix/react",
     "env": {
@@ -182,8 +184,5 @@
         "fit"
       ]
     }
-  },
-  "haste": {
-    "preset": "yoshi"
   }
 }
