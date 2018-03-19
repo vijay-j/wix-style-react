@@ -12,6 +12,19 @@ Types of changes:
 1. **Security** in case of vulnerabilities.
 1. **Breaking** for breaking changes
 
+## 2.0.31 - 2018-03-19
+### Added
+- TextLink - add grayscale. MultiSelect Tags - hover css [#1452](https://github.com/wix/wix-style-react/pull/1452)
+- Apply `<Input>` new focus style [#1533](https://github.com/wix/wix-style-react/pull/1533)
+- Added event listener for page content resize [#1564](https://github.com/wix/wix-style-react/pull/1564)
+### Changed
+- Testkit sectionhelper [#1563](https://github.com/wix/wix-style-react/pull/1563)
+- Fix missing dataHook - add Range e2e test for DatePicker [#1562](https://github.com/wix/wix-style-react/pull/1562)
+- `<FieldWithSelection>` : Prepare for new focus styles [#1559](https://github.com/wix/wix-style-react/pull/1559)
+### Fixed
+- fix(Selector, Checkbox, ModalSelectorLayout)| ModalSelectorLayout clicking on checkbox fires onToggle twice [#1560](https://github.com/wix/wix-style-react/pull/1560)
+- Remove scss calls to fade() [#1554](https://github.com/wix/wix-style-react/pull/1554)
+
 ## 2.0.30 - 2018-03-15
 ### Added
 - `<MultiSelect/>` composite component [1538](https://github.com/wix/wix-style-react/pull/1538)
