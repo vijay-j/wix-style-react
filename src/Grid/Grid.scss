@@ -22,7 +22,7 @@ $grid-row-margin-bottom: 30px;
 		box-sizing: border-box;
 	}
 
-	.row {
+	.row:not(last-child) {
 		margin-bottom: $grid-row-margin-bottom;
 	}
 }
