@@ -34,7 +34,7 @@ describe('SectionHelper', () => {
           actionText: 'Muffins are the best!',
           onAction: () => {}
         }
-      ));
+        ));
 
       expect(driver.actionText()).toEqual('Muffins are the best!');
     });

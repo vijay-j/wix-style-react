@@ -61,9 +61,9 @@ export default class SliderHandle extends Component {
         style={{left: `${this.props.offset}%`}}
         >
         {this.state.showTooltip &&
-          <div className="slider-tooltip">
-            {this.props.value}
-          </div>}
+        <div className="slider-tooltip">
+          {this.props.value}
+        </div>}
         <div className="slider-handle-inner"/>
       </div>
     );

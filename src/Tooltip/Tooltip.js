@@ -84,7 +84,7 @@ class Tooltip extends WixComponent {
     /** Allows changing the padding of the content */
     padding: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 
-      /** Allows updating the tooltip position **/
+    /** Allows updating the tooltip position **/
     shouldUpdatePosition: PropTypes.bool
   };
 

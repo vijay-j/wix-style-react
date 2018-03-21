@@ -25,9 +25,9 @@ const richTextAreaDriverFactory = ({element, wrapper, component, componentInstan
     enterText: text => {
       const editorState = componentInstance.state.editorState;
       const newEditorState = editorState
-              .transform()
-              .insertText(text)
-              .apply();
+        .transform()
+        .insertText(text)
+        .apply();
 
       componentInstance.setEditorState(newEditorState);
     },

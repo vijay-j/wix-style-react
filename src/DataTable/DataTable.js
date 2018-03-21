@@ -91,7 +91,7 @@ class DataTable extends WixComponent {
       <div>
         <table id={this.props.id} style={style} className={s.table}>
           {!this.props.hideHeader &&
-          <TableHeader {...this.props}/>}
+            <TableHeader {...this.props}/>}
           {this.renderBody(rowsToRender)}
         </table>
       </div>);
@@ -185,14 +185,16 @@ class DataTable extends WixComponent {
     const classes = classNames({[s.important]: column.important});
     const width = rowNum === 0 && this.props.hideHeader ? column.width : undefined;
 
-    return (<td
-      style={column.style}
-      width={width}
-      className={classes}
-      key={colNum}
-      >
-      {column.render && column.render(rowData, rowNum)}
-    </td>);
+    return (
+      <td
+        style={column.style}
+        width={width}
+        className={classes}
+        key={colNum}
+        >
+        {column.render && column.render(rowData, rowNum)}
+      </td>
+    );
   };
 
   calcLastPage = ({data, itemsPerPage}) => Math.ceil(data.length / itemsPerPage) - 1;

@@ -25,23 +25,23 @@ class SectionHelper extends WixComponent {
     return (
       <div className={classnames(styles.root, HELPER_APPEARANCE[this.props.appearance])}>
         { this.props.onClose &&
-          <div className={classnames(styles.close, {[styles.closeWithTitle]: this.props.title})}>
-            <Button
-              dataHook="sectionhelper-close-btn"
-              size="large"
-              theme="close-dark"
-              onClick={this.props.onClose}
-              children={<CloseIcon size="8px"/>}
-              />
-          </div>
+        <div className={classnames(styles.close, {[styles.closeWithTitle]: this.props.title})}>
+          <Button
+            dataHook="sectionhelper-close-btn"
+            size="large"
+            theme="close-dark"
+            onClick={this.props.onClose}
+            children={<CloseIcon size="8px"/>}
+            />
+        </div>
         }
 
         { this.props.title &&
-          <div className={styles.title}>
-            <Text dataHook="sectionhelper-title" appearance="T4">
-              {this.props.title}
-            </Text>
-          </div>
+        <div className={styles.title}>
+          <Text dataHook="sectionhelper-title" appearance="T4">
+            {this.props.title}
+          </Text>
+        </div>
         }
 
         <div className={styles.content}>
@@ -51,15 +51,15 @@ class SectionHelper extends WixComponent {
         </div>
 
         { this.props.onAction && this.props.actionText &&
-          <div className={styles.action}>
-            <Button
-              height="small"
-              theme="outlined"
-              onClick={this.props.onAction}
-              dataHook="sectionhelper-action-btn"
-              children={this.props.actionText}
-              />
-          </div>
+        <div className={styles.action}>
+          <Button
+            height="small"
+            theme="outlined"
+            onClick={this.props.onAction}
+            dataHook="sectionhelper-action-btn"
+            children={this.props.actionText}
+            />
+        </div>
         }
       </div>
     );

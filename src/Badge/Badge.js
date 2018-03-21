@@ -24,7 +24,7 @@ class Badge extends WixComponent {
       styles[alignment],
       styles[shape],
       typography[convertFromUxLangToCss(appearance)
-        ]);
+      ]);
 
     return (
       <span className={className} data-hook={dataHook}>

@@ -10,7 +10,7 @@ describe('input area page', () => {
     browser.get(storyUrl);
   });
 
-  beforeEach(async() => {
+  beforeEach(async () => {
     await autoExampleDriver.reset();
     await waitForVisibilityOf(inputAreaTestkit.element());
   });

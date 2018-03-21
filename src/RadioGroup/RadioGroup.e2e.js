@@ -45,22 +45,22 @@ describe('RadioGroup', () => {
 
     eyes.it('should focus on first item (not-selected)', () => {
       waitForVisibilityOf(radioGroupDriver.element(), 'Cannot find RadioGroup')
-      .then(async () => {
-        expect(radioGroupDriver.isRadioFocused(0)).toBe(false);
-        await pressTab();
-        expect(radioGroupDriver.isRadioFocused(0)).toBe(true);
-      });
+        .then(async () => {
+          expect(radioGroupDriver.isRadioFocused(0)).toBe(false);
+          await pressTab();
+          expect(radioGroupDriver.isRadioFocused(0)).toBe(true);
+        });
     });
 
     eyes.it('should focus on first item (selected)', () => {
       autoExampleDriver.setProps({value: 1});
       waitForVisibilityOf(radioGroupDriver.element(), 'Cannot find RadioGroup')
-      .then(async () => {
-        expect(radioGroupDriver.isRadioChecked(0)).toBe(true);
-        expect(radioGroupDriver.isRadioFocused(0)).toBe(false);
-        await pressTab();
-        expect(radioGroupDriver.isRadioFocused(0)).toBe(true);
-      });
+        .then(async () => {
+          expect(radioGroupDriver.isRadioChecked(0)).toBe(true);
+          expect(radioGroupDriver.isRadioFocused(0)).toBe(false);
+          await pressTab();
+          expect(radioGroupDriver.isRadioFocused(0)).toBe(true);
+        });
     });
   });
 });

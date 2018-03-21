@@ -62,7 +62,7 @@ class PopoverMenu extends WixComponent {
           [styles.placementTop]: this.props.placement === 'top',
           [styles.placementBottom]: this.props.placement === 'bottom'
         }
-        )}
+      )}
       >
       {this.menuItems(this.props.children)}
     </ul>

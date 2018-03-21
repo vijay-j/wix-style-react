@@ -14,7 +14,7 @@ describe('rich text area page', () => {
     browser.get(storyUrl);
   });
 
-  beforeEach(async() => {
+  beforeEach(async () => {
     await waitForVisibilityOf(richTextAreaTestkit.element());
   });
 
