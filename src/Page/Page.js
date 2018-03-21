@@ -6,6 +6,7 @@ import Content from './Content';
 import Tail from './Tail';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import {ResizeSensor} from 'css-element-queries';
 
 const SCROLL_TOP_THRESHOLD = 20;
 const SHORT_SCROLL_TOP_THRESHOLD = 3;
@@ -24,18 +25,21 @@ class Page extends WixComponent {
 
     this._setContainerScrollTopThreshold(false);
     this._handleScroll = this._handleScroll.bind(this);
+    this._handleResize = this._handleResize.bind(this);
 
     this.state = {
       headerHeight: 0,
       tailHeight: 0,
+      scrollBarWidth: 0,
       minimized: false
     };
   }
 
   componentDidMount() {
     super.componentDidMount();
-    this._getScrollContainer().addEventListener('scroll', this._handleScroll);
+    this.contentResizeListener = new ResizeSensor(this._getScrollContainer().childNodes[0], this._handleResize);
     this._calculateComponentsHeights();
+    this._handleResize();
   }
 
   componentDidUpdate() {
@@ -47,7 +51,7 @@ class Page extends WixComponent {
 
   componentWillUnmount() {
     super.componentWillUnmount();
-    this._getScrollContainer().removeEventListener('scroll', this._handleScroll);
+    this.contentResizeListener.detach(this._handleResize);
   }
 
   _calculateComponentsHeights() {
@@ -88,6 +92,16 @@ class Page extends WixComponent {
     }
   }
 
+  _handleResize() {
+    // Fixes width issues when scroll bar is present in windows
+    const scrollContainer = this._getScrollContainer();
+    const scrollBarWidth = scrollContainer && scrollContainer.offsetWidth - scrollContainer.clientWidth;
+
+    if (this.state.scrollBarWidth !== scrollBarWidth) {
+      this.setState({scrollBarWidth});
+    }
+  }
+
   _safeGetChildren(element) {
     if (!element || !element.props || !element.props.children) {
       return [];
@@ -116,10 +130,7 @@ class Page extends WixComponent {
   }
 
   _pageHeaderContainerStyle() {
-    // Fixes width issues when scroll bar is present in windows
-    const scrollBarWidth =
-      this.scrollableContentRef &&
-      this.scrollableContentRef.offsetWidth - this.scrollableContentRef.clientWidth;
+    const {scrollBarWidth} = this.state;
     if (scrollBarWidth) {
       return {width: `calc(100% - ${scrollBarWidth}px`};
     }
@@ -180,6 +191,7 @@ class Page extends WixComponent {
         </div>
         <div
           className={s.scrollableContent}
+          onScroll={this._handleScroll}
           data-hook="page-scrollable-content"
           style={{paddingTop: `${calculatedHeaderHeight}px`}}
           ref={r => this.scrollableContentRef = r}
@@ -205,10 +217,11 @@ class Page extends WixComponent {
                 style={{height: gradientHeight}}
                 />
           }
-          <div className={s.contentContainer} style={{paddingBottom: `${headerHeightDelta}px`}}>
+          <div className={s.contentContainer}>
             <div className={classNames(s.content, {[s.contentFullScreen]: contentFullScreen})} style={contentFullScreen ? null : pageDimensionsStyle}>
               {this._safeGetChildren(PageContent)}
             </div>
+            {headerHeightDelta && <div style={{height: `${headerHeightDelta}px`}}/>}
           </div>
         </div>
       </div>

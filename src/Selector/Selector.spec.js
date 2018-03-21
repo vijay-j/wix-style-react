@@ -80,6 +80,17 @@ describe('Selector', () => {
     expect(driver.toggleType()).toBe(toggleType);
   });
 
+  it('should not propagate when selecting a disabled selector', () => {
+    const onToggle = jest.fn();
+    const toggleType = 'radio';
+    const props = {...defaultProps, ...{toggleType}};
+    const driver = createDriver(<Selector onToggle={onToggle} {...props} isDisabled/>);
+
+    driver.toggle();
+
+    expect(onToggle).not.toHaveBeenCalled();
+  });
+
   describe('given image size', () => {
     const sizesAndTestkitMethods = [
       ['tiny', 'isImageTiny'],

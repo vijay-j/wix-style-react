@@ -34,9 +34,30 @@ describe('TextLink', () => {
     expect(driver.getSize()).toBe('small');
   });
 
-  it('should be with dark background', () => {
+  //TODO - this should be deprecated
+  it('should support deprecated darkBackground', () => {
     const driver = createDriver(<TextLink link="" darkBackground size="small"/>);
     expect(driver.isDarkBackground()).toBeTruthy();
+  });
+
+  it('should be with dark background', () => {
+    const driver = createDriver(<TextLink link="" theme="darkBackground" size="small"/>);
+    expect(driver.isDarkBackground()).toBeTruthy();
+  });
+
+  it('should be with greyscale theme', () => {
+    const driver = createDriver(<TextLink link="" theme="greyScale" size="small"/>);
+    expect(driver.isGreyScale()).toBeTruthy();
+  });
+
+  it('should get greyscale theme', () => {
+    const driver = createDriver(<TextLink link="" theme="greyScale" size="small"/>);
+    expect(driver.getTheme()).toEqual('greyScale');
+  });
+
+  it('should get normal theme', () => {
+    const driver = createDriver(<TextLink link="" size="small"/>);
+    expect(driver.getTheme()).toEqual('normal');
   });
 
   it('should be with light background', () => {

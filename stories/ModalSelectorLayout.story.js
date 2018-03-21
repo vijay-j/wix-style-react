@@ -10,6 +10,7 @@ const ITEMS = times(50, i => ({
   title: `Title ${i}`,
   subtitle: `Subtitle ${i}`,
   extraText: `Extra Text ${i}`,
+  disabled: !(i % 2),
   image: <img width="100%" height="100%" src="http://via.placeholder.com/100x100"/>
 }));
 

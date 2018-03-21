@@ -6,15 +6,18 @@
   border: 0;
   background: transparent;
   color: $D30;
-
+  border-radius: 6px;
+ 
   &:not(.disabled) {
     &:hover,
     &.isActive {
       color: $B10;
     }
-
-    &:focus {
-      outline: 0;
+    
+    &[data-focused="true"] {
+      @include FocusBox;
+      z-index: 1;
+      position: relative;
     }
   }
 

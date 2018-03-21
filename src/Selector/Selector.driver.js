@@ -25,6 +25,7 @@ const selectorDriverFactory = ({element, wrapper, component}) => {
     isImageCinema: () => isClassExists(image(), 'cinema'),
     isImageCircle: () => isClassExists(image(), 'circle'),
     isImageRectangular: () => isClassExists(image(), 'rectangular'),
+    isDisabled: () => toggleInput().prop('disabled'),
     toggleType: () => toggleInput().prop('type'),
     isChecked: () => !!toggleInput().prop('checked'),
     hasImage: () => !!image(),

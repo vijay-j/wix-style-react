@@ -1,3 +1,5 @@
+import {isFocused} from '../test-common';
+
 const datePickerDriverFactory = component => {
   const getInput = () => component.$('input');
   const getCalendar = () => component.$('.react-datepicker');
@@ -16,7 +18,8 @@ const datePickerDriverFactory = component => {
       pressEnterKey: () => getInput().sendKeys(protractor.Key.ENTER),
       pressEscKey: () => getInput().sendKeys(protractor.Key.ESCAPE),
       pressTabKey: () => getInput().sendKeys(protractor.Key.TAB),
-      pressArrowRightKey: () => getInput().sendKeys(protractor.Key.ARROW_RIGHT)
+      pressArrowRightKey: () => getInput().sendKeys(protractor.Key.ARROW_RIGHT),
+      isFocused: () => isFocused(getInput())
     },
     calendarDriver: {
       exists: () => getCalendar().isPresent(),

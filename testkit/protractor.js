@@ -9,6 +9,9 @@ export const inputTestkitFactory = protractorTestkitFactoryCreator(inputDriverFa
 import richTextAreaDriverFactory from '../src/RichTextArea/RichTextArea.protractor.driver';
 export const richTextAreaTestkitFactory = protractorTestkitFactoryCreator(richTextAreaDriverFactory);
 
+import inputAreaDriverFactory from '../src/InputArea/InputArea.protractor.driver';
+export const inputAreaTestkitFactory = protractorTestkitFactoryCreator(inputAreaDriverFactory);
+
 import labelDriverFactory from '../src/Label/Label.protractor.driver';
 export const labelTestkitFactory = protractorTestkitFactoryCreator(labelDriverFactory);
 

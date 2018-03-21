@@ -12,6 +12,34 @@ Types of changes:
 1. **Security** in case of vulnerabilities.
 1. **Breaking** for breaking changes
 
+## 2.0.31 - 2018-03-19
+### Added
+- `<PopoverMenu>` : add appendTo props [#1568](https://github.com/wix/wix-style-react/pull/1568)
+- TextLink - add grayscale. MultiSelect Tags - hover css [#1452](https://github.com/wix/wix-style-react/pull/1452)
+- Apply `<Input>` new focus style [#1533](https://github.com/wix/wix-style-react/pull/1533)
+- Added event listener for page content resize [#1564](https://github.com/wix/wix-style-react/pull/1564)
+### Changed
+- Testkit sectionhelper [#1563](https://github.com/wix/wix-style-react/pull/1563)
+- Fix missing dataHook - add Range e2e test for DatePicker [#1562](https://github.com/wix/wix-style-react/pull/1562)
+- `<FieldWithSelection>` : Prepare for new focus styles [#1559](https://github.com/wix/wix-style-react/pull/1559)
+### Fixed
+- fix(Selector, Checkbox, ModalSelectorLayout)| ModalSelectorLayout clicking on checkbox fires onToggle twice [#1560](https://github.com/wix/wix-style-react/pull/1560)
+- Remove scss calls to fade() [#1554](https://github.com/wix/wix-style-react/pull/1554)
+
+## 2.0.30 - 2018-03-15
+### Added
+- `<MultiSelect/>` composite component [1538](https://github.com/wix/wix-style-react/pull/1538)
+
+### Changed
+- `<ModalSelectorLayout/>` support disabled items [1550](https://github.com/wix/wix-style-react/pull/1550)
+- `<InputArea/>`, `<RichTextArea/>`, `<Range>`, `<RadioGroup>` new focus styles [1553](https://github.com/wix/wix-style-react/pull/1553) [1542](https://github.com/wix/wix-style-react/pull/1542) [1548](https://github.com/wix/wix-style-react/pull/1548)
+`<TextLink/>` - `preventDefault` for onClick when no `link` given [1551](https://github.com/wix/wix-style-react/pull/1551)
+
+### Fixed
+- `<Tooltip/>` fix `tooltipPlacement` prop [1552](https://github.com/wix/wix-style-react/pull/1552)
+- `<ToggleSwitch/>` - Remove from async from isFocused [1544](https://github.com/wix/wix-style-react/pull/1544)
+- `<PageHeader/>` - update the title methods in the driver to return the [1549](https://github.com/wix/wix-style-react/pull/1549)
+
 ## 2.0.29 - 2018-03-12
 ### Added
 - new icons `Duplicate3`, `EmailOpen`, `Trash4`, `Warning` [1504](https://github.com/wix/wix-style-react/pull/1504)

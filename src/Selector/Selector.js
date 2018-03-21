@@ -24,6 +24,7 @@ class Selector extends WixComponent {
     imageShape: PropTypes.oneOf(['rectangular', 'circle']),
     title: PropTypes.string.isRequired,
     isSelected: PropTypes.bool,
+    isDisabled: PropTypes.bool,
     subtitle: PropTypes.string,
     extraNode: PropTypes.node,
     onToggle: PropTypes.func,
@@ -32,6 +33,7 @@ class Selector extends WixComponent {
 
   static defaultProps = {
     isSelected: false,
+    isDisabled: false,
     toggleType: 'radio',
     imageSize: 'large',
     imageShape: 'rectangular',
@@ -40,8 +42,7 @@ class Selector extends WixComponent {
 
   radioButtonAndImageMargins = '57px';
 
-  _onClick = id => () =>
-    this.props.onToggle(id);
+  _onClick = () => !this.props.isDisabled && this.props.onToggle(this.props.id);
 
   render() {
     const {
@@ -52,18 +53,18 @@ class Selector extends WixComponent {
       subtitle,
       extraNode,
       isSelected,
-      id,
+      isDisabled,
       toggleType
     } = this.props;
 
     return (
       <li
         className={styles.root}
-        onClick={this._onClick(id)}
+        onClick={this._onClick}
         >
         { toggleType === 'checkbox' ?
-          <Checkbox dataHook="toggle" checked={isSelected}/> :
-          <RadioButton dataHook="toggle" checked={isSelected}/>
+          <Checkbox dataHook="toggle" checked={isSelected} disabled={isDisabled}/> :
+          <RadioButton dataHook="toggle" checked={isSelected} disabled={isDisabled}/>
         }
 
         {image &&

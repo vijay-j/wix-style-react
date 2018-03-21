@@ -1,5 +1,6 @@
 export default {
   kind: '3. Inputs',
   storyName: '3.7 Range',
-  dataHook: 'storybook-range'
+  dataHookInput: 'storybook-range-input',
+  dataHookDatePicker: 'storybook-range-date'
 };

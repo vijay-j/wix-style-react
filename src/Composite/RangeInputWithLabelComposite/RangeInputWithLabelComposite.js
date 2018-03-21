@@ -61,8 +61,7 @@ class RangeInputWithLabelComposite extends WixComponent {
       noRightBorderRadius: (rangeType === 'DatePicker') ? styles.firstDate : styles.firstinput,
       onKeyDown: e => this._doKeyDown(e),
       onFocus: e => this._handleFocusFirst(e),
-      onBlur: e => this._handleBlurFirst(e),
-      dataHook: 'first-item'
+      onBlur: e => this._handleBlurFirst(e)
     };
 
     const additionalLastInputProps = {
@@ -70,8 +69,7 @@ class RangeInputWithLabelComposite extends WixComponent {
       noLeftBorderRadius: (rangeType === 'DatePicker') ? styles.lastDate : styles.lastinput,
       onKeyDown: e => this._doKeyDown(e),
       onFocus: e => this._handleFocusLast(e),
-      onBlur: e => this._handleBlurLast(e),
-      dataHook: 'last-item'
+      onBlur: e => this._handleBlurLast(e)
     };
 
     const inputWrapperClassNames = classNames({

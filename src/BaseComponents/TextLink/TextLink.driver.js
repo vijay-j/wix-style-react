@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactTestUtils from 'react-dom/test-utils';
+import {ThemeOptions} from '../TextLinkLayout/TextLinkLayout';
 
 const textLinkDriverFactory = ({element, wrapper, component}) => {
   const textLinkLayout = element ? element.children[0] : {};
@@ -10,7 +11,17 @@ const textLinkDriverFactory = ({element, wrapper, component}) => {
     click: (event = {}) => ReactTestUtils.Simulate.click(element, event),
     getContent: () => textLinkLayout.textContent,
     doesComponentHasClass: className => textLinkLayout.className.includes(className),
-    isDarkBackground: () => textLinkLayout.style._values.color === 'rgb(255, 255, 255)',
+    isDarkBackground: () => textLinkLayout.style._values.color === 'rgb(240, 244, 247)',
+    isGreyScale: () => textLinkLayout.style._values.color === 'rgb(22, 45, 61)',
+    getTheme: () => {
+      const {color} = textLinkLayout.style._values;
+      if (color === 'rgb(240, 244, 247)') {
+        return ThemeOptions.DARK_BACKGROUND.type;
+      } else if (color === 'rgb(22, 45, 61)') {
+        return ThemeOptions.GREYSCALE.type;
+      }
+      return ThemeOptions.NORMAL.type;
+    },
     hover: () => ReactTestUtils.Simulate.mouseEnter(textLinkLayout), // simulate hover on text link layout because events are not propagated
     getLink: () => element.href,
     getTarget: () => element.target,

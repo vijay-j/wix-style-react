@@ -4,7 +4,6 @@
 $minWidth: 380px;
 $minHeight: 132px;
 $borderColorNormal: $B30;
-$borderColorFocused: $B20;
 $borderColorError: $R10;
 $border: 1px solid $B30;
 $borderRadius: 6px;
@@ -75,28 +74,14 @@ $marginLeft: $paddingLeft;
   .withError & {
     border-color: $borderColorError;
     border-top-color: $borderColorNormal;
-
-    &:before {
-      content: '';
-      position: absolute;
-      border-top: 1px solid $R10;
-      width: 1px;
-      left: -1px;
-      top: -1px;
-    }
-
-    &:after {
-      content: '';
-      position: absolute;
-      border-top: 1px solid $R10;
-      width: 1px;
-      right: -1px;
-      top: -1px;
-    }
   }
 
-  .isFocused:not(.withError) & {
-    border-color: $borderColorFocused;
+  .isEditorFocused & {
+    @include FocusBox;
+  }
+  
+  .isEditorFocused.withError & {
+    @include FocusBoxError;
   }
 
   &:not(.disabled) :hover {

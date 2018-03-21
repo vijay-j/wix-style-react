@@ -204,7 +204,7 @@ class Tooltip extends WixComponent {
         }
       }
       if (!this.state.visible && this.props.showTrigger === 'custom') {
-        if (nextProps.active) {
+        if (nextProps.active && !nextProps.disabled) {
           this.show();
         }
       }

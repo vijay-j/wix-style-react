@@ -99,7 +99,10 @@ class Checkbox extends WixComponent {
             onFocus={this.handleInputFocus}
             onBlur={this.handleInputBlur}
             >
-            <div className={styles.inner} >
+            <div
+              className={styles.inner}
+              onClick={e => e.stopPropagation()}
+              >
               {checkedSymbol}
             </div>
           </div>

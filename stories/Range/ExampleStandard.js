@@ -12,7 +12,9 @@ import styles from './ExampleStandard.scss';
 class ExampleStandard extends Component {
 
   static propTypes = {
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+    dataHook: PropTypes.string
+
   };
 
   rangeTypes = [{id: 0, value: 'InputRange'}, {id: 1, value: 'DateRange'}];
@@ -54,6 +56,7 @@ class ExampleStandard extends Component {
     required: false,
     info: ''
   };
+
 
   setComponentState(componentName, obj) {
     this.setState(prevState => {
@@ -178,7 +181,11 @@ class ExampleStandard extends Component {
           </div>
         </div>
         <div className={styles.output}>
-          <RangeExample {...this.state} onChange={this.props.onChange}/>
+          <RangeExample
+            dataHook={this.props.dataHook}
+            {...this.state}
+            onChange={this.props.onChange}
+            />
         </div>
       </from>
     );

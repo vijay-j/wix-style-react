@@ -83,13 +83,6 @@
     }
 }
 
-@mixin ThemeFocus($borderColor, $boxShadow: none) {
-    &.hasFocus {
-        border-color: $borderColor;
-        box-shadow: $boxShadow;
-    }
-}
-
 @mixin ThemeFocusPanelTile($borderColor, $boxShadow: none) {
     &.hasFocus {
         border-color: $borderColor;

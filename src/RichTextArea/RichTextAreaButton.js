@@ -50,6 +50,12 @@ const buttons = {
 };
 
 class RichTextAreaButton extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {isFocused: false};
+  }
+
   handleMouseDown = event => {
     event.preventDefault();
     if (!this.props.disabled) {
@@ -80,6 +86,9 @@ class RichTextAreaButton extends Component {
           className={className}
           onMouseDown={this.handleMouseDown}
           data-hook={`rich-text-area-button-${type}`}
+          data-focused={this.state.isFocused}
+          onFocus={this.handleFocus}
+          onBlur={this.handleBlur}
           >
           <span className={styles.wrapper}>
             {this.renderIcon()}
@@ -93,6 +102,13 @@ class RichTextAreaButton extends Component {
     const {icon: Icon, size} = buttons[this.props.type];
     return <Icon size={`${size}px`}/>;
   }
+
+  handleFocus = () =>
+    !this.state.isFocused && this.setState({isFocused: true});
+
+  handleBlur = () =>
+    this.state.isFocused && this.setState({isFocused: false});
+
 }
 
 RichTextAreaButton.propTypes = {

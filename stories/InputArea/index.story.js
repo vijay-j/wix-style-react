@@ -21,12 +21,16 @@ import ExampleRefsRaw from '!raw-loader!./ExampleRefs';
 import ExampleSizes from './ExampleSizes';
 import ExampleSizesRaw from '!raw-loader!./ExampleSizes';
 
+export const AUTO_EXAMPLE_DATA_HOOK = 'storybook-inputarea';
+
 export default {
   category: '3. Inputs',
   storyName: '3.2 + InputArea',
   component: InputArea,
   componentPath: '../../src/InputArea',
-
+  componentProps: {
+    dataHook: AUTO_EXAMPLE_DATA_HOOK
+  },
   examples: (
     <div>
       <CodeExample title="Standard" code={ExampleStandardRaw}>

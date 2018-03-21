@@ -410,6 +410,13 @@ describe('ModalSelectorLayout', () => {
 
     const dataSource = paginatedDataSourceFactory(items);
 
+    const multiselectModalWithItems = async function (items) {
+      const dataSource = paginatedDataSourceFactory(items);
+      const driver = createDriverWithProps({dataSource, multiple: true});
+      await flushPromises();
+      return driver;
+    };
+
     it('should render checkboxes', async () => {
       const driver = createDriverWithProps({dataSource, multiple: true});
 
@@ -429,6 +436,81 @@ describe('ModalSelectorLayout', () => {
       driver.okButtonDriver().click();
 
       expect(spy).toHaveBeenCalledWith(items);
+    });
+
+    it('should support a disabled selector', async () => {
+      const driver = await multiselectModalWithItems([
+        {id: 1, title: 'first', disabled: true}
+      ]);
+
+      expect(driver.getSelectorDriverAt(0).isDisabled()).toBe(true);
+    });
+
+    it('should not count selection of disabled items', async () => {
+      const driver = await multiselectModalWithItems([
+        {id: 1, title: 'first', disabled: true}
+      ]);
+
+      expect(driver.footerSelector().getLabel()).toContain('(0)');
+    });
+
+    it('should not count selection of disabled items for deselecting all', async () => {
+      const driver = await multiselectModalWithItems([
+        {id: 1, title: 'first', disabled: true}
+      ]);
+
+      driver.footerSelector().click();
+
+      expect(driver.footerSelector().getLabel()).toContain('(0)');
+    });
+
+    it('should not count selection of disabled items for selecting some', async () => {
+      const driver = await multiselectModalWithItems([
+        {id: 1, title: 'first', disabled: true},
+        {id: 2, title: 'sec'}
+      ]);
+
+      driver.getSelectorDriverAt(1).toggle();
+
+      expect(driver.footerSelector().getLabel()).toContain('(1)');
+    });
+
+    it('should count how many left for select all', async () => {
+      const driver = await multiselectModalWithItems([
+        {id: 1, title: 'first', disabled: true},
+        {id: 2, title: 'sec'}
+      ]);
+
+      expect(driver.footerSelector().getLabel()).toContain('(1)');
+    });
+  });
+
+  describe('given items with `selected`', () => {
+    const items = [
+      {id: 1, title: 'first'},
+      {id: 2, title: 'second', selected: true},
+      {id: 3, title: 'third', disabled: true, selected: true}
+    ];
+
+    const dataSource = paginatedDataSourceFactory(items);
+
+    it('should show correct label in footer', async () => {
+      const driver = createDriverWithProps({dataSource, multiple: true});
+      await flushPromises();
+
+      expect(driver.footerSelector().getLabel()).toContain(' Deselect All (1)');
+    });
+
+    it('should deselect all after click', async () => {
+      const driver = createDriverWithProps({dataSource, multiple: true});
+      await flushPromises();
+
+      driver.footerSelector().click();
+      expect(driver.footerSelector().getLabel()).toContain(' Select All (2)');
+      expect(driver.getSelectorDriverAt(0).isChecked()).toBe(false);
+      expect(driver.getSelectorDriverAt(1).isChecked()).toBe(false);
+      expect(driver.getSelectorDriverAt(2).isChecked()).toBe(true);
+      expect(driver.getSelectorDriverAt(2).isDisabled()).toBe(true);
     });
   });
 

@@ -46,26 +46,6 @@ describe('Tooltip', () => {
     });
   });
 
-  it('should hide tooltip when using custom triggers', () => {
-    const props = {..._props, hideTrigger: 'custom', showTrigger: 'custom'};
-    const driver = createDriver(<Tooltip {...props}>{children}</Tooltip>);
-    driver.mouseEnter();
-    return resolveIn(30)
-      .then(() => {
-        expect(driver.isShown()).toBeFalsy();
-        driver.setProps({...props, active: true});
-        return resolveIn(30);
-      })
-      .then(() => {
-        expect(driver.isShown()).toBeTruthy();
-        driver.setProps({...props, active: false});
-        return resolveIn(30);
-      })
-      .then(() => {
-        expect(driver.isShown()).toBeFalsy();
-      });
-  });
-
   it('should test inner component', () => {
     const dataHook = 'button_data_hook';
     const buttonContent = (
@@ -211,6 +191,48 @@ describe('Tooltip', () => {
     driver.mouseEnter();
     return resolveIn(30).then(() => {
       expect(el.childElementCount).toEqual(1);
+    });
+  });
+
+  describe('custom triggers', () => {
+    it('should hide tooltip', () => {
+      const props = {..._props, hideTrigger: 'custom', showTrigger: 'custom'};
+      const driver = createDriver(<Tooltip {...props}>{children}</Tooltip>);
+      driver.mouseEnter();
+      return resolveIn(30)
+      .then(() => {
+        expect(driver.isShown()).toBeFalsy();
+        driver.setProps({...props, active: true});
+        return resolveIn(30);
+      })
+      .then(() => {
+        expect(driver.isShown()).toBeTruthy();
+        driver.setProps({...props, active: false});
+        return resolveIn(30);
+      })
+      .then(() => {
+        expect(driver.isShown()).toBeFalsy();
+      });
+    });
+
+    it('should not show tooltip when transitioned to both active and disabled', () => {
+      const props = {
+        ..._props,
+        hideTrigger: 'custom',
+        showTrigger: 'custom',
+        active: false,
+        disabled: false
+      };
+      const driver = createDriver(<Tooltip {...props}>{children}</Tooltip>);
+      return resolveIn(30)
+      .then(() => {
+        expect(driver.isShown()).toBeFalsy();
+        driver.setProps({...props, active: true, disabled: true});
+        return resolveIn(30);
+      })
+      .then(() => {
+        expect(driver.isShown()).toBeFalsy();
+      });
     });
   });
 

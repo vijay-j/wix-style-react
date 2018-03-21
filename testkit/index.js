@@ -206,3 +206,6 @@ export const statsWidgetTestkitFactory = testkitFactoryCreator(statsWidgetDriver
 
 import modalSelectorLayoutDriverFactory from '../src/ModalSelectorLayout/ModalSelectorLayout.driver';
 export const modalSelectorLayoutTestkitFactory = testkitFactoryCreator(modalSelectorLayoutDriverFactory);
+
+import sectionHelperDriverFactory from '../src/SectionHelper/SectionHelper.driver';
+export const sectionHelperTestkitFactory = testkitFactoryCreator(sectionHelperDriverFactory);
