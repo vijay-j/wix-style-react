@@ -78,9 +78,6 @@ export const fieldWithSelectionCompositeTestkitFactory = protractorTestkitFactor
 import googleAddressWithInputDriverFactory from '../src/GoogleAddressInputWithLabel/GoogleAddressInputWithLabel.protractor.driver';
 export const googleAddressWithInputTestkitFactory = protractorTestkitFactoryCreator(googleAddressWithInputDriverFactory);
 
-import toggleSwitchDriverFactory from '../src/ToggleSwitch/ToggleSwitch.protractor.driver';
-export const toggleSwitchTestkitFactory = protractorTestkitFactoryCreator(toggleSwitchDriverFactory);
-
 import imageViewerDriverFactory from '../src/ImageViewer/ImageViewer.protractor.driver';
 export const imageViewerTestkitFactory = protractorTestkitFactoryCreator(imageViewerDriverFactory);
 
@@ -128,4 +125,8 @@ export const tabsTestkitFactory = protractorTestkitFactoryCreator(tabsDriverFact
 
 // wix-ui-backoffice proxy
 
-export {badgeTestkitFactory, stylableCounterBadgeDriverFactory as counterBadgeDriverFactory} from 'wix-ui-backoffice/dist/src/testkit/protractor';
+export {
+  badgeTestkitFactory,
+  stylableCounterBadgeDriverFactory as counterBadgeDriverFactory,
+  stylableToggleSwitchTestkitFactory as toggleSwitchTestkitFactory
+} from 'wix-ui-backoffice/dist/src/testkit/protractor';
