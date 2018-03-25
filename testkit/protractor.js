@@ -128,5 +128,5 @@ export const tabsTestkitFactory = protractorTestkitFactoryCreator(tabsDriverFact
 export {
   badgeTestkitFactory,
   stylableCounterBadgeDriverFactory as counterBadgeDriverFactory,
-  stylableToggleSwitchTestkitFactory as toggleSwitchTestkitFactory
+  toggleSwitchTestkitFactory
 } from 'wix-ui-backoffice/dist/src/testkit/protractor';

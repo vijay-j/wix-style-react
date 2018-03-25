@@ -203,5 +203,5 @@ export const sectionHelperTestkitFactory = enzymeTestkitFactoryCreator(sectionHe
 export {
   badgeTestkitFactory,
   stylableCounterBadgeDriverFactory as counterBadgeDriverFactory,
-  stylableToggleSwitchTestkitFactory as toggleSwitchTestkitFactory
+  toggleSwitchTestkitFactory
 } from 'wix-ui-backoffice/dist/src/testkit/enzyme';
