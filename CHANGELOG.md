@@ -12,6 +12,8 @@ Types of changes:
 1. **Security** in case of vulnerabilities.
 1. **Breaking** for breaking changes
 
+## 4.0.0
+
 ## next
 ### Added
 - `<Tooltip/>` - add showImmediately prop to disable animations and delay [#1705](https://github.com/wix/wix-style-react/pull/1705)
