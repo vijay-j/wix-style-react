@@ -81,9 +81,6 @@ export const googleAddressWithInputTestkitFactory = protractorTestkitFactoryCrea
 import imageViewerDriverFactory from '../src/ImageViewer/ImageViewer.protractor.driver';
 export const imageViewerTestkitFactory = protractorTestkitFactoryCreator(imageViewerDriverFactory);
 
-import textDriverFactory from '../src/Text/Text.protractor.driver';
-export const textTestkitFactory = protractorTestkitFactoryCreator(textDriverFactory);
-
 import tpaTextLinkDriverFactory from '../src/TPA/TextLink/TextLink.protractor.driver';
 export const tpaTextLinkTestkitFactory = protractorTestkitFactoryCreator(tpaTextLinkDriverFactory);
 
@@ -134,5 +131,7 @@ export const tooltipTestkitFactory = protractorTestkitFactoryCreator(tooltipDriv
 export {
   badgeTestkitFactory,
   stylableCounterBadgeTestkitFactory as counterBadgeTestkitFactory,
-  toggleSwitchTestkitFactory
+  headingTestkitFactory,
+  toggleSwitchTestkitFactory,
+  textTestkitFactory
 } from 'wix-ui-backoffice/dist/src/testkit/protractor';
