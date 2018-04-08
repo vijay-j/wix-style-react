@@ -13,6 +13,11 @@ Types of changes:
 1. **Breaking** for breaking changes
 
 ## 4.0.0
+### Changed
+- `<Autocomplete>` - New Autocomplete component from wix-ui-backoffice [1620](https://github.com/wix/wix-style-react/pull/1620)
+
+- `<ToggleSwitch>` - New ToggleSwitch component from wix-ui-backoffice [1637](https://github.com/wix/wix-style-react/pull/1637)
+
 
 ## next
 ### Added
@@ -99,7 +104,6 @@ Types of changes:
 - `<DrillView/>` - dont go over a tags if have no onClick prop [#1599](https://github.com/wix/wix-style-react/pull/1599)
 
 - `<Range/>` - fix click race condition
-
 
 ## 3.0.0
 ### Breaking
