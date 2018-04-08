@@ -130,7 +130,6 @@ Types of changes:
 
 - `<Range/>` - fix click race condition
 
-
 ## 3.0.0
 ### Breaking
 - `<DatePicker/>` [migration guide](https://github.com/wix/wix-style-react/blob/master/src/DatePicker/MIGRATION.md)
