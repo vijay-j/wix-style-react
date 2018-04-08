@@ -14,6 +14,7 @@ Types of changes:
 
 ## 4.0.0
 <<<<<<< HEAD
+<<<<<<< HEAD
 ### Changed
 - `<Autocomplete>` - New Autocomplete component from wix-ui-backoffice [1620](https://github.com/wix/wix-style-react/pull/1620)
 - `<ToggleSwitch>` - New ToggleSwitch component from wix-ui-backoffice [1637](https://github.com/wix/wix-style-react/pull/1637)
@@ -79,6 +80,13 @@ Types of changes:
 - Reverted the removal of `Languages` icon
 =======
 >>>>>>> start release branch 4.0.0
+=======
+### Changed
+- `<Autocomplete>` - New Autocomplete component from wix-ui-backoffice [1620](https://github.com/wix/wix-style-react/pull/1620)
+
+- `<ToggleSwitch>` - New ToggleSwitch component from wix-ui-backoffice [1637](https://github.com/wix/wix-style-react/pull/1637)
+
+>>>>>>> New ToggleSwitch (#1637)
 
 ## 3.1.0 - 2018-04-08
 ### Added
