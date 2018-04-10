@@ -142,7 +142,36 @@ export default () =>
           <Card>
             <Card.ButtonHeader
               tooltip={<Tooltip placement="top" alignment="center" content="Hi there!"/>}
-              title="Card header no content"
+              buttonOnClick={() => {
+                alert('Clicked!');
+              }}
+              title="Card header"
+              buttonPrefix={<Plus/>}
+              buttonTitle="Tooltip button!"
+              />
+          </Card>
+        </Col>
+        <Col span={6}>
+          <Card>
+            <Card.ButtonHeader
+              withoutDivider
+              title="Card header"
+              buttonOnClick={() => {
+                alert('Clicked!');
+              }}
+              buttonPrefix={<Plus/>}
+              buttonTitle="Tooltip button!"
+              />
+          </Card>
+        </Col>
+      </Row>
+      <Row>
+        <Col span={6}>
+          <Card>
+            <Card.ButtonHeader
+              tooltip={<Tooltip placement="top" alignment="center" content="Hi there!"/>}
+              title="Card header"
+              subtitle="Card subtitle"
               buttonOnClick={() => {
                 alert('Clicked!');
               }}
@@ -154,10 +183,102 @@ export default () =>
         <Col span={6}>
           <Card>
             <Card.ButtonHeader
-              withoutDivider title="Card header no content" subtitle="No divider" buttonOnClick={() => {
+              withoutDivider
+              title="Card header"
+              subtitle="Card subtitle"
+              buttonOnClick={() => {
                 alert('Clicked!');
-              }} buttonPrefix={<ArrowDownThin/>} buttonTitle="Click Me!"
-                                                 />
+              }}
+              buttonPrefix={<Plus/>}
+              buttonTitle="Tooltip button!"
+              />
+          </Card>
+        </Col>
+      </Row>
+
+      <Row>
+        <Col span={6}>
+          <Card>
+            <Card.ButtonHeader
+              tooltip={<Tooltip placement="top" alignment="center" content="Hi there!"/>}
+              title="Card header"
+              buttonOnClick={() => {
+                alert('Clicked!');
+              }}
+              buttonPrefix={<Plus/>}
+              buttonTitle="Tooltip button!"
+              />
+            <Card.Content>
+              <Row>
+                <Col span={6}>
+                  {renderStandardInput()}
+                </Col>
+              </Row>
+            </Card.Content>
+          </Card>
+        </Col>
+        <Col span={6}>
+          <Card>
+            <Card.ButtonHeader
+              withoutDivider
+              tooltip={<Tooltip placement="top" alignment="center" content="Hi there!"/>}
+              title="Card header"
+              buttonOnClick={() => {
+                alert('Clicked!');
+              }}
+              buttonPrefix={<Plus/>}
+              buttonTitle="Tooltip button!"
+              />
+            <Card.Content>
+              <Row>
+                <Col span={6}>
+                  {renderStandardInput()}
+                </Col>
+              </Row>
+            </Card.Content>
+          </Card>
+        </Col>
+      </Row>
+      <Row>
+        <Col span={6}>
+          <Card>
+            <Card.ButtonHeader
+              title="Card header"
+              subtitle="Card subtitle"
+              buttonOnClick={() => {
+                alert('Clicked!');
+              }}
+              buttonPrefix={<Plus/>}
+              buttonTitle="Tooltip button!"
+              />
+            <Card.Content>
+              <Row>
+                <Col span={6}>
+                  {renderStandardInput()}
+                </Col>
+              </Row>
+            </Card.Content>
+          </Card>
+        </Col>
+        <Col span={6}>
+          <Card>
+            <Card.ButtonHeader
+              withoutDivider
+              title="Card header"
+              subtitle="Card subtitle"
+              buttonOnClick={() => {
+                alert('Clicked!');
+              }}
+              buttonPrefix={<Plus/>}
+              buttonTitle="Tooltip button!"
+              />
+            <Card.Content>
+              <Row>
+                <Col span={6}>
+                  {renderStandardInput()}
+                </Col>
+              </Row>
+            </Card.Content>
           </Card>
         </Col>
       </Row>
