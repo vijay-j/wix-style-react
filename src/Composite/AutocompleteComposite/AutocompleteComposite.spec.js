@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactTestUtils from 'react-dom/test-utils';
 import AutocompleteComposite from './';
-import {Autocomplete} from '../StylableAutocomplete';
-import {autocompleteCompositeTestkitFactory} from '../../testkit';
-import {autocompleteCompositeTestkitFactory as enzymeTextAreaTestkitFactory} from '../../testkit/enzyme';
+import Autocomplete from '../../Autocomplete';
+import {autocompleteCompositeTestkitFactory} from '../../../testkit';
+import {autocompleteCompositeTestkitFactory as enzymeTextAreaTestkitFactory} from '../../../testkit/enzyme';
 import {mount} from 'enzyme';
 
 describe('AutocompleteComposite', () => {

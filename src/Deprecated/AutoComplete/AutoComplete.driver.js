@@ -1,4 +1,4 @@
-import inputWithOptionsDriverFactory from '../InputWithOptions/InputWithOptions.driver';
+import inputWithOptionsDriverFactory from '../../InputWithOptions/InputWithOptions.driver';
 
 const autoCompleteDriverFactory = inputWithOptionsDriverFactory;
 

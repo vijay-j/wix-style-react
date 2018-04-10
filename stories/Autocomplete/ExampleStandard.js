@@ -1,5 +1,5 @@
 import React from 'react';
-import {Autocomplete} from 'wix-style-react/StylableAutocomplete';
+import Autocomplete from 'wix-style-react/Autocomplete';
 import {array} from 'prop-types';
 
 const style = {

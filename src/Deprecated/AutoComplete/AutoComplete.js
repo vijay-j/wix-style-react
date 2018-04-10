@@ -1,5 +1,5 @@
 import {func} from 'prop-types';
-import InputWithOptions from '../InputWithOptions/InputWithOptions';
+import InputWithOptions from '../../InputWithOptions/InputWithOptions';
 
 class AutoComplete extends InputWithOptions {
   static propTypes = {

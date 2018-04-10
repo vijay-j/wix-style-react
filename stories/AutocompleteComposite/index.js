@@ -3,7 +3,7 @@ import {storiesOf} from '@storybook/react';
 import Markdown from 'wix-storybook-utils/Markdown';
 import InteractiveCodeExample from 'wix-storybook-utils/InteractiveCodeExample';
 
-import Readme from '../../src/StylableAutocompleteComposite/README.md';
+import Readme from '../../src/Composite/AutocompleteComposite/README.md';
 import ExampleStandard from './ExampleStandard';
 
 storiesOf('4. Selection', module)

@@ -1,4 +1,4 @@
-import inputAreaWithLabelCompositeDriverFactory from '../Composite/InputAreaWithLabelComposite/InputAreaWithLabelComposite.protractor.driver';
+import inputAreaWithLabelCompositeDriverFactory from '../InputAreaWithLabelComposite/InputAreaWithLabelComposite.protractor.driver';
 
 const autocompleteCompositeDriverFactory = component => inputAreaWithLabelCompositeDriverFactory(component);
 

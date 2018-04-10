@@ -63,7 +63,7 @@ export const dropdownCompositeTestkitFactory = protractorTestkitFactoryCreator(d
 import multiSelectCompositeDriverFactory from '../src/MultiSelectComposite/MultiSelectComposite.protractor.driver';
 export const multiSelectCompositeTestkitFactory = protractorTestkitFactoryCreator(multiSelectCompositeDriverFactory);
 
-import autocompleteCompositeDriverFactory from '../src/StylableAutocompleteComposite/AutocompleteComposite.protractor.driver';
+import autocompleteCompositeDriverFactory from '../src/Composite/AutocompleteComposite/AutocompleteComposite.protractor.driver';
 export const autocompleteCompositeTestkitFactory = protractorTestkitFactoryCreator(autocompleteCompositeDriverFactory);
 
 import rangeDriverFactory from '../src/Range/Range.protractor.driver';

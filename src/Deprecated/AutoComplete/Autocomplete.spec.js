@@ -1,8 +1,8 @@
 import React from 'react';
 import autoCompleteDriverFactory from './AutoComplete.driver';
 import AutoComplete from './AutoComplete';
-import {createDriverFactory} from '../test-common';
-import {runInputWithOptionsTest} from '../InputWithOptions/InputWithOptions.spec';
+import {createDriverFactory} from '../../test-common';
+import {runInputWithOptionsTest} from '../../InputWithOptions/InputWithOptions.spec';
 
 const asciiA = '97';
 runInputWithOptionsTest(autoCompleteDriverFactory);

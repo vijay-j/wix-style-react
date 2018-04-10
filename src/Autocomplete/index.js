@@ -1,9 +1,9 @@
 import React from 'react';
 import {Autocomplete as BOAutocomplete} from 'wix-ui-backoffice/Autocomplete';
-import {default as OldAutocomplete} from '../DeprecatedAutoComplete';
+import {default as OldAutocomplete} from '../Deprecated/AutoComplete';
 import {string} from 'prop-types';
 
-export const Autocomplete = props => {
+const Autocomplete = props => {
   if (props.theme === 'amaterial') {
     return <OldAutocomplete {...props}/>;
   }
@@ -17,3 +17,5 @@ Autocomplete.propTypes = {
   theme: string,
   ...BOAutocomplete.propTypes
 };
+
+export default Autocomplete;

@@ -1,6 +1,6 @@
 import React from 'react';
 import {autocompleteDriverFactory} from './Autocomplete.driver';
-import {Autocomplete} from './';
+import Autocomplete from './';
 import {createDriverFactory} from '../test-common';
 import {autocompleteTestkitFactory} from '../../testkit';
 import {autocompleteTestkitFactory as enzymeAutocompleteTestkitFactory} from '../../testkit/enzyme';

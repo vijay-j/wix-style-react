@@ -3,10 +3,10 @@ import InputAreaWithLabelComposite from './InputAreaWithLabelComposite';
 import Label from '../../Label';
 import Input from '../../Input';
 import InputArea from '../../InputArea';
-import {Autocomplete} from '../../StylableAutocomplete';
+import Autocomplete from '../../Autocomplete';
 import textAreaDriverFactory from '../../TextArea/TextArea.driver';
 import textFieldDriverFactory from '../../TextField/TextField.driver';
-import autocompleteCompositeDriverFactory from '../../StylableAutocompleteComposite/AutocompleteComposite.driver';
+import autocompleteCompositeDriverFactory from '../AutocompleteComposite/AutocompleteComposite.driver';
 import {createDriverFactory} from '../../test-common';
 import Tooltip from '../../Tooltip/Tooltip';
 

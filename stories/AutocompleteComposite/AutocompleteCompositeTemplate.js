@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
-import AutocompleteComposite from '../../src/StylableAutocompleteComposite';
-import {Autocomplete} from '../../src/StylableAutocomplete';
+import AutocompleteComposite from '../../src/Composite/AutocompleteComposite';
+import Autocomplete from '../../src/Autocomplete';
 import Label from '../../src/Label';
 
 export default class Form extends Component {
