@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ReactModal from 'react-modal';
+import styles from './Modal.scss';
 import ReactTestUtils from 'react-dom/test-utils';
 
 const modalDriverFactory = ({element, wrapper, component}) => {
@@ -16,7 +16,7 @@ const modalDriverFactory = ({element, wrapper, component}) => {
     isThemeExist: theme => !!getPortal().querySelector(`.${theme}`),
     getChildBySelector: selector => getPortal().querySelector(selector),
     isScrollable: () => !getPortal().classList.contains('portalNonScrollable'),
-    getInnerContent: () => wrapper.find(ReactModal).node.portal,
+    getInnerContent: () => wrapper.find(styles.portal).node.portal,
     clickOnOverlay: () => {
       const overlay = getOverlay();
       ReactTestUtils.Simulate.click(overlay);
