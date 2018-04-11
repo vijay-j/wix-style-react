@@ -28,7 +28,8 @@ class LinkHeader extends WixComponent {
     const headerClasses = classNames({
       [styles.headerOnlyTitle]: !subtitle,
       [styles.headerTitleSubtitle]: subtitle,
-      [styles.withDivider]: !withoutDivider
+      [styles.withDivider]: !withoutDivider,
+      [styles.withoutDivider]: !!withoutDivider
     });
 
     const linkElement = (

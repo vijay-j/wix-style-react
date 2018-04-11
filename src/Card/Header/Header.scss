@@ -11,7 +11,7 @@ $header-padding: 27px 30px 26px;
     border-bottom: 1px solid $D60;
   }
 
-  &:not(.with-divider) + * {
+  &.without-divider + * {
     padding-top: 0;
   }
 
