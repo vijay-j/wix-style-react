@@ -51,6 +51,11 @@ describe('Modal', () => {
         const driver = createDriver(<Modal {...props} scrollableContent maxHeight="auto"/>);
         expect(driver.getContentStyle().maxHeight).toBe('100vh');
       });
+
+      it('content position should be relative', () => {
+        const driver = createDriver(<Modal {...props}/>);
+        expect(driver.getContentStyle().position).toBe('relative');
+      });
     });
 
   });

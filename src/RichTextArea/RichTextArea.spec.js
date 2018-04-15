@@ -10,7 +10,7 @@ const mockGetSelection = () => {
   window.getSelection = fn;
 };
 
-describe.skip('RichTextArea', () => {
+describe('RichTextArea', () => {
   let currentValue;
 
   beforeEach(() => {

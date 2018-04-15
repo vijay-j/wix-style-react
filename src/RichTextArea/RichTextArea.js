@@ -114,8 +114,18 @@ class RichTextArea extends WixComponent {
 
   componentWillReceiveProps(props) {
     if (props.value && props.value !== this.props.value && props.value !== this.lastValue) {
-      const editorState = htmlSerializer.deserialize(props.value);
-      this.setState({editorState});
+      if (props.isAppend) {
+        const newEditorState = this.state.editorState
+              .transform()
+              .insertText(props.value)
+              .apply();
+
+        this.setEditorState(newEditorState);
+      }
+      else {
+        const editorState = htmlSerializer.deserialize(props.value);
+        this.setEditorState(editorState);
+      }
     }
   }
 

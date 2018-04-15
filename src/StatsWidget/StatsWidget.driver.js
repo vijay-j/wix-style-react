@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import dropdownLayoutDriver from '../ButtonWithOptions/ButtonWithOptions.driver';
 import headerDriverFactory from '../Card/Header/Header.driver';
 
-const statsWidgetDriverFactory = ({element, wrapper, component}) => {
-  const getStatistic = index => element.querySelector('[data-hook="stats-widget-content-wrapper"]').childNodes[index];
+const byHook = (wrapper, hook) => wrapper.querySelector(`[data-hook="${hook}"]`);
 
-  const headerElement = element.querySelector(`[data-hook="stats-widget-title"]`);
+const statsWidgetDriverFactory = ({element, wrapper, component}) => {
+  const getStatistic = index => byHook(element, 'stats-widget-content-wrapper').childNodes[index];
+
+  const headerElement = byHook(element, 'stats-widget-title');
 
   const headerDriver = headerDriverFactory({wrapper: element, element: headerElement});
 
@@ -15,16 +17,20 @@ const statsWidgetDriverFactory = ({element, wrapper, component}) => {
 
     titleText: () => headerDriver.title(),
 
-    getStatisticTitle: index => getStatistic(index).querySelector('[data-hook="statistics-item-title"]').textContent,
+    isStatisticsContentExists: () => !!byHook(element, 'stats-widget-content-wrapper'),
 
-    getStatisticSubTitle: index => getStatistic(index).querySelector('[data-hook="statistics-item-subtitle"]').textContent,
+    isEmptyStateExists: () => !!byHook(element, 'stats-widget-empty-state'),
 
-    getStatisticPercentValue: index => getStatistic(index).querySelector('[data-hook="percent-value"]').textContent,
+    getStatisticTitle: index => byHook(getStatistic(index), 'statistics-item-title').textContent,
 
-    getStatisticPercentClass: index => getStatistic(index).querySelector('[data-hook="percent-wrapper"]').className,
+    getStatisticSubTitle: index => byHook(getStatistic(index), 'statistics-item-subtitle').textContent,
+
+    getStatisticPercentValue: index => byHook(getStatistic(index), 'percent-value').textContent,
+
+    getStatisticPercentClass: index => byHook(getStatistic(index), 'percent-wrapper').className,
 
     getFilterDriver: dataHook => {
-      const optionElement = element.querySelector(`[data-hook="${dataHook}"]`);
+      const optionElement = byHook(element, dataHook);
       return dropdownLayoutDriver({wrapper: element, element: optionElement});
     },
 

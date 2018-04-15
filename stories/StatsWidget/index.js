@@ -17,6 +17,9 @@ import ExampleStatsWidgetWithPercentsRaw from '!raw-loader!./ExampleStatsWidgetW
 import ExampleStatsWidgetWithFilters from './ExampleStatsWidgetWithFilters';
 import ExampleStatsWidgetWithFiltersRaw from '!raw-loader!./ExampleStatsWidgetWithFilters';
 
+import ExampleStatsWidgetEmptyState from './ExampleStatsWidgetEmptyState';
+import ExampleStatsWidgetEmptyStateRaw from '!raw-loader!./ExampleStatsWidgetEmptyState';
+
 import ExampleStatsWidgetWithFilterWithNoBorder from './ExampleStatsWidgetWithFilterWithNoBorder';
 import ExampleStatsWidgetWithFilterWithNoBorderRaw from '!raw-loader!./ExampleStatsWidgetWithFilterWithNoBorder';
 
@@ -43,6 +46,9 @@ storiesOf('2. Layout', module)
         </CodeExample>
         <CodeExample title="Stats widget example with multiple filters" code={ExampleStatsWidgetWithFiltersRaw}>
           <ExampleStatsWidgetWithFilters/>
+        </CodeExample>
+        <CodeExample title="Stats widget example with empty state" code={ExampleStatsWidgetEmptyStateRaw}>
+          <ExampleStatsWidgetEmptyState/>
         </CodeExample>
       </div>
 

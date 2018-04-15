@@ -72,10 +72,17 @@ describe('StatsWidget', () => {
     expect(driver.titleText()).toBe(title);
   });
 
-  it('should show statistics', () => {
+  it('should show statistics and not empty state', () => {
     createComponent({title, statistics});
     expect(driver.getStatisticTitle(0)).toBe(statistics[0].title);
     expect(driver.getStatisticSubTitle(0)).toBe(statistics[0].subtitle);
+    expect(driver.isEmptyStateExists()).toBe(false);
+  });
+
+  it('should show empty state and not statistics', () => {
+    createComponent({title, emptyState: <div>Empty</div>});
+    expect(driver.isEmptyStateExists()).toBe(true);
+    expect(driver.isStatisticsContentExists()).toBe(false);
   });
 
   it('should show abs of percentage', () => {
