@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {isClassExists} from '../../test/utils';
-import labelDriverFactory from '../Label/Label.driver';
+import {labelDriverFactory} from 'wix-ui-backoffice/dist/src/components/Label/Label.driver';
 import {testkitFactoryCreator} from '../test-common';
 
 const labelTestkitFactory = testkitFactoryCreator(labelDriverFactory);

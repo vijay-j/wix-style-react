@@ -12,9 +12,6 @@ export const richTextAreaTestkitFactory = protractorTestkitFactoryCreator(richTe
 import inputAreaDriverFactory from '../src/InputArea/InputArea.protractor.driver';
 export const inputAreaTestkitFactory = protractorTestkitFactoryCreator(inputAreaDriverFactory);
 
-import labelDriverFactory from '../src/Label/Label.protractor.driver';
-export const labelTestkitFactory = protractorTestkitFactoryCreator(labelDriverFactory);
-
 import buttonDriverFactory from '../src/Backoffice/Button/Button.protractor.driver';
 export const buttonTestkitFactory = protractorTestkitFactoryCreator(buttonDriverFactory);
 
