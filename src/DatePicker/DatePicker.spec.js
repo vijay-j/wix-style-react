@@ -611,13 +611,12 @@ describe('DatePicker', () => {
   });
 
 
-  describe('`locales` prop (external translations)', () => {
+  describe('external translations for `locale` prop', () => {
     const setup = (props = {}) => {
       const {calendarDriver, inputDriver, driver} = createDriver(
         <DatePicker
           onChange={noop}
-          locale="is"
-          locales={{is: isLocale}}
+          locale={isLocale}
           value={new Date(2015, 9, 2)}
           {...props}
           />

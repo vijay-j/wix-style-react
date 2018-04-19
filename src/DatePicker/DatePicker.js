@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Popper from 'popper.js';
+import isString_ from 'lodash/isString';
 
 import DayPicker from 'react-day-picker/DayPicker';
 
@@ -53,10 +54,28 @@ export default class DatePicker extends WixComponent {
     dateFormat: PropTypes.string,
 
     /** DatePicker instance locale */
-    locale: PropTypes.string,
-
-    /** External locales */
-    locales: PropTypes.object,
+    locale: PropTypes.oneOfType([
+      PropTypes.oneOf([
+        'en',
+        'es',
+        'pt',
+        'fr',
+        'de',
+        'pl',
+        'it',
+        'ru',
+        'ja',
+        'ko',
+        'tr',
+        'sv',
+        'no',
+        'nl',
+        'da']),
+      PropTypes.shape({
+        distanceInWords: PropTypes.object,
+        format: PropTypes.object
+      })
+    ]),
 
     /** Is the DatePicker disabled */
     disabled: PropTypes.bool,
@@ -191,7 +210,6 @@ export default class DatePicker extends WixComponent {
   _createDayPickerProps = () => {
     const {
       locale,
-      locales,
       showMonthDropdown,
       showYearDropdown,
       filterDate,
@@ -202,7 +220,7 @@ export default class DatePicker extends WixComponent {
 
     const {value} = this.state;
 
-    const localeUtils = localeUtilsFactory(locale, locales);
+    const localeUtils = localeUtilsFactory(locale);
 
     const captionElement = (
       <DatePickerHead
@@ -235,7 +253,7 @@ export default class DatePicker extends WixComponent {
       month: value,
       year: value,
       firstDayOfWeek: 1,
-      locale,
+      locale: isString_(locale) ? locale : '',
       showOutsideDays: true,
       modifiers: value ? {'keyboard-selected': value} : {},
       onKeyDown: this._handleKeyDown,
@@ -317,7 +335,6 @@ export default class DatePicker extends WixComponent {
       calendarDataHook,
       dateFormat,
       locale,
-      locales,
       disabled,
       placeholderText,
       readOnly,
@@ -332,7 +349,7 @@ export default class DatePicker extends WixComponent {
 
     const inputProps = {
       dataHook: inputDataHook,
-      value: initialValue && formatDate(initialValue, dateFormat, locale, locales),
+      value: initialValue && formatDate(initialValue, dateFormat, locale),
       onInputClicked: this.openCalendar,
       disabled,
       readOnly,
