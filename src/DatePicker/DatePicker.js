@@ -53,23 +53,10 @@ export default class DatePicker extends WixComponent {
     dateFormat: PropTypes.string,
 
     /** DatePicker instance locale */
-    locale: PropTypes.oneOf([
-      'en',
-      'es',
-      'pt',
-      'fr',
-      'de',
-      'pl',
-      'it',
-      'ru',
-      'ja',
-      'ko',
-      'tr',
-      'sv',
-      'no',
-      'nl',
-      'da'
-    ]),
+    locale: PropTypes.string,
+
+    /** External locales */
+    locales: PropTypes.object,
 
     /** Is the DatePicker disabled */
     disabled: PropTypes.bool,
@@ -204,6 +191,7 @@ export default class DatePicker extends WixComponent {
   _createDayPickerProps = () => {
     const {
       locale,
+      locales,
       showMonthDropdown,
       showYearDropdown,
       filterDate,
@@ -214,7 +202,7 @@ export default class DatePicker extends WixComponent {
 
     const {value} = this.state;
 
-    const localeUtils = localeUtilsFactory(locale);
+    const localeUtils = localeUtilsFactory(locale, locales);
 
     const captionElement = (
       <DatePickerHead
@@ -329,6 +317,7 @@ export default class DatePicker extends WixComponent {
       calendarDataHook,
       dateFormat,
       locale,
+      locales,
       disabled,
       placeholderText,
       readOnly,
@@ -343,7 +332,7 @@ export default class DatePicker extends WixComponent {
 
     const inputProps = {
       dataHook: inputDataHook,
-      value: initialValue && formatDate(initialValue, dateFormat, locale),
+      value: initialValue && formatDate(initialValue, dateFormat, locale, locales),
       onInputClicked: this.openCalendar,
       disabled,
       readOnly,

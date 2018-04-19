@@ -12,6 +12,8 @@ import Input from '../Input';
 import DatePicker from './DatePicker';
 import '../utils/RangePolyfill.js';
 
+import isLocale from 'date-fns/locale/is';
+
 const noop = () => {};
 
 describe('DatePicker', () => {
@@ -605,6 +607,53 @@ describe('DatePicker', () => {
     it('should display translated weekdays', () => {
       const {calendarDriver} = setup();
       expect(calendarDriver.getNthWeekDayName(0)).toEqual('lu');
+    });
+  });
+
+
+  describe('`locales` prop (external translations)', () => {
+    const setup = (props = {}) => {
+      const {calendarDriver, inputDriver, driver} = createDriver(
+        <DatePicker
+          onChange={noop}
+          locale="is"
+          locales={{is: isLocale}}
+          value={new Date(2015, 9, 2)}
+          {...props}
+          />
+      );
+
+      inputDriver.trigger('click');
+
+      return {
+        calendarDriver,
+        driver,
+        inputDriver
+      };
+    };
+
+    it('should display translated month in caption', () => {
+      const {calendarDriver} = setup();
+      expect(calendarDriver.getMonthCaption()).toEqual('október');
+    });
+
+    it('should display translated month in dropdown label', () => {
+      const {calendarDriver} = setup({
+        showMonthDropdown: true
+      });
+      expect(calendarDriver.getMonthDropdownLabel()).toEqual('október');
+    });
+
+    it('should display translated months in dropdown options', () => {
+      const {calendarDriver} = setup({
+        showMonthDropdown: true
+      });
+      expect(calendarDriver.getMonthDropdownDriver().optionContentAt(0)).toEqual('janúar');
+    });
+
+    it('should display translated weekdays', () => {
+      const {calendarDriver} = setup();
+      expect(calendarDriver.getNthWeekDayName(0)).toEqual('má');
     });
   });
 
