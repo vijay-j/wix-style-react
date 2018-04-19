@@ -12,6 +12,12 @@ Types of changes:
 1. **Security** in case of vulnerabilities.
 1. **Breaking** for breaking changes
 
+## next
+
+### Added
+- `<DatePicker/>` - Added ability to use external locales from `data-fns`
+
+
 ## 3.1.5 - 2018-04-18
 ### Added
 - `<Tabs/>` - Added missed `hasDivider` property, divider is visible by default [#1676](https://github.com/wix/wix-style-react/pull/1676)
