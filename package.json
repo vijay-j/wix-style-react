@@ -20,7 +20,7 @@
     "test:e2e-only": "NODE_ENV=production yoshi test --protractor",
     "build": "npm run lint && svg2react-icon && yoshi build && build-storybook && npm run export-components",
     "storybook": "start-storybook -p 6006",
-    "release": "node scripts/npm-release.js",
+    "postpublish": "gh-pages-auto-release --dist=storybook-static",
     "export-components": "import-path --path src",
     "lint": "yoshi lint"
   },
@@ -78,7 +78,6 @@
     "react-test-renderer": "^15.5.4",
     "react-test-utils": "^0.0.1",
     "regenerator-runtime": "^0.11.0",
-    "semver": "^5.4.1",
     "sinon": "^1.17.6",
     "surge-github-autorelease": "^1.0.23",
     "svg2react-icon": "^1.0.0",
