@@ -12,9 +12,6 @@ export const tooltipTestkitFactory = enzymeTestkitFactoryCreator(tooltipDriverFa
 import backofficeTooltipDriverFactory from '../src/Backoffice/Tooltip/Tooltip.driver';
 export const backofficeTooltipTestkitFactory = enzymeTestkitFactoryCreator(backofficeTooltipDriverFactory);
 
-import labelDriverFactory from '../src/Label/Label.driver';
-export const labelTestkitFactory = enzymeTestkitFactoryCreator(labelDriverFactory);
-
 import breadcrumbsDriverFactory from '../src/Breadcrumbs/Breadcrumbs.driver';
 export const breadcrumbsTestkitFactory = enzymeTestkitFactoryCreator(breadcrumbsDriverFactory);
 
