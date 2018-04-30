@@ -125,5 +125,6 @@ export {
   headingTestkitFactory,
   autocompleteTestkitFactory,
   toggleSwitchTestkitFactory,
+  labelTestkitFactory,
   textTestkitFactory
 } from 'wix-ui-backoffice/dist/src/testkit/protractor';
