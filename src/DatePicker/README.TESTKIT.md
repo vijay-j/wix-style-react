@@ -49,8 +49,8 @@ datePickerPolyfills(window, global);
 
 ```javascript
   import React from 'react';
-  import {DatePickerTestkitFactory} from 'wix-style-react/testkit';
-  import {DatePickerTestkitFactory as enzymeDatePickerTestkitFactory} from 'wix-style-react/testkit/enzyme';
+  import {datePickerTestkitFactory} from 'wix-style-react/dist/testkit';
+  import {datePickerTestkitFactory as enzymeDatePickerTestkitFactory} from 'wix-style-react/dist/testkit/enzyme';
 
   /***************
    enzyme example
