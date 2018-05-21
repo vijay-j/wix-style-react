@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
 import AutocompleteComposite from '../../src/Composite/AutocompleteComposite';
-import Autocomplete from '../../src/Autocomplete';
+import Autocomplete from '../../src/AutoComplete';
 import Label from '../../src/Label';
 
 export default class Form extends Component {

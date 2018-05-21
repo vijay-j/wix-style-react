@@ -33,6 +33,9 @@ export const dataTableTestkitFactory = protractorTestkitFactoryCreator(dataTable
 import breadcrumbsDriverFactory from '../src/Breadcrumbs/Breadcrumbs.protractor.driver';
 export const breadcrumbsTestkitFactory = protractorTestkitFactoryCreator(breadcrumbsDriverFactory);
 
+import autoCompleteDriverFactory from '../src/AutoComplete/AutoComplete.protractor.driver';
+export const autoCompleteTestkitFactory = protractorTestkitFactoryCreator(autoCompleteDriverFactory);
+
 import checkboxDriverFactory from '../src/Checkbox/Checkbox.protractor.driver';
 export const checkboxTestkitFactory = protractorTestkitFactoryCreator(checkboxDriverFactory);
 
@@ -126,7 +129,6 @@ export {
   badgeTestkitFactory,
   stylableCounterBadgeTestkitFactory as counterBadgeTestkitFactory,
   headingTestkitFactory,
-  autocompleteTestkitFactory,
   toggleSwitchTestkitFactory,
   textTestkitFactory
 } from 'wix-ui-backoffice/dist/src/testkit/protractor';

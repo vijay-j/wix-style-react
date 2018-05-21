@@ -1,1 +1,5 @@
-export {autocompleteDriverFactory} from 'wix-ui-backoffice/dist/src/components/Autocomplete/Autocomplete.driver';
+import inputWithOptionsDriverFactory from '../InputWithOptions/InputWithOptions.driver';
+
+const autoCompleteDriverFactory = inputWithOptionsDriverFactory;
+
+export default autoCompleteDriverFactory;

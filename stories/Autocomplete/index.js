@@ -8,7 +8,7 @@ import Text from '../../src/Text';
 import {Example} from './ExampleStandard';
 import ExampleStandardRaw from '!raw-loader!./ExampleStandard';
 
-import Autocomplete from 'wix-style-react/Autocomplete';
+import Autocomplete from 'wix-style-react/AutoComplete';
 import {generateOptions} from 'wix-ui-core/dist/src/baseComponents/DropdownOption/OptionsExample';
 
 const options = generateOptions((args = {}) => Autocomplete.createDivider(args.value));

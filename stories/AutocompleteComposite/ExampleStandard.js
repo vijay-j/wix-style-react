@@ -6,7 +6,7 @@ import Input from '../../src/Input';
 import Label from '../../src/Label';
 import ToggleSwitch from '../../src/ToggleSwitch';
 import RadioGroup from '../../src/RadioGroup';
-import Autocomplete from '../../src/Autocomplete';
+import Autocomplete from '../../src/AutoComplete';
 
 import styles from './ExampleStandard.scss';
 

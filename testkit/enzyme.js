@@ -39,6 +39,9 @@ export const buttonWithOptionsTestkitFactory = enzymeTestkitFactoryCreator(butto
 import languagePickerDriverFactory from '../src/LanguagePicker/LanguagePicker.driver';
 export const languagePickerTestkitFactory = enzymeTestkitFactoryCreator(languagePickerDriverFactory);
 
+import autoCompleteDriverFactory from '../src/AutoComplete/AutoComplete.driver';
+export const autoCompleteTestkitFactory = enzymeTestkitFactoryCreator(autoCompleteDriverFactory);
+
 import dropdownDriverFactory from '../src/Dropdown/Dropdown.driver';
 export const dropdownTestkitFactory = enzymeTestkitFactoryCreator(dropdownDriverFactory);
 
@@ -198,7 +201,6 @@ export {
   badgeTestkitFactory,
   stylableCounterBadgeTestkitFactory as counterBadgeTestkitFactory,
   headingTestkitFactory,
-  autocompleteTestkitFactory,
   toggleSwitchTestkitFactory,
   textTestkitFactory
 } from 'wix-ui-backoffice/dist/src/testkit/enzyme';
