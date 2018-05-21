@@ -42,7 +42,7 @@ import '../stories/GoogleAddressInput'; // 3.11 GoogleAddressInput
 
 // 4. Selection
 import '../stories/Dropdown'; // 4.1 Dropdown
-import '../stories/Autocomplete'; // 4.1 + Autocomplete
+import '../stories/AutoComplete'; // 4.1 + AutoComplete
 import '../stories/AutocompleteComposite'; // 4.1 + AutocompleteComposite
 import '../stories/InputWithOptions'; // 4.1 + InputWithOptions
 import '../stories/IconWithOptions'; // 4.1 + IconWithOptions

@@ -4,31 +4,39 @@ import Markdown from 'wix-storybook-utils/Markdown';
 import TabbedView from 'wix-storybook-utils/TabbedView';
 import CodeExample from 'wix-storybook-utils/CodeExample';
 
-import Text from '../../src/Text';
-import {Example} from './ExampleStandard';
+import Readme from '../../src/AutoComplete/README.md';
+import ReadmeTestKit from '../../src/AutoComplete/README.TESTKIT.md';
+
+import ExampleStandard from './ExampleStandard';
 import ExampleStandardRaw from '!raw-loader!./ExampleStandard';
 
-import Autocomplete from 'wix-style-react/AutoComplete';
-import {generateOptions} from 'wix-ui-core/dist/src/baseComponents/DropdownOption/OptionsExample';
+import ExampleControlled from './ExampleControlled';
+import ExampleControlledRaw from '!raw-loader!./ExampleControlled';
 
-const options = generateOptions((args = {}) => Autocomplete.createDivider(args.value));
+import ExampleComplex from './ExampleComplex';
+import ExampleComplexRaw from '!raw-loader!./ExampleComplex';
 
 storiesOf('4. Selection', module)
-  .add('4.1 + Autocomplete', () =>
-    <TabbedView tabs={['API']}>
+  .add('4.1 + AutoComplete', () =>
+    <TabbedView tabs={['API', 'TestKits']}>
       <div>
-        <Markdown source={`# \`<Autocomplete/>\``}/>
-        <div style={{background: 'azure', display: 'inline-block'}}><Text>{`import Autocomplete from 'wix-style-react/Autocomplete';`}</Text></div>
-        <h2>
-          Component documentation and playground is available <a target="_blank" rel="noopener noreferrer" href="https://wix.github.io/wix-ui-backoffice/?selectedKind=Components&selectedStory=Autocomplete">here</a>.
-        </h2>
-        <CodeExample title="Examples" code={ExampleStandardRaw}>
-          <Example options={options}/>
+        <Markdown source={Readme}/>
+
+        <h1>Usage examples</h1>
+
+        <CodeExample title="Standard" code={ExampleStandardRaw}>
+          <ExampleStandard/>
         </CodeExample>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
+
+        <CodeExample title="Controlled input" code={ExampleControlledRaw}>
+          <ExampleControlled/>
+        </CodeExample>
+
+        <CodeExample title="Complex input" code={ExampleComplexRaw}>
+          <ExampleComplex/>
+        </CodeExample>
       </div>
+
+      <Markdown source={ReadmeTestKit}/>
     </TabbedView>
   );
