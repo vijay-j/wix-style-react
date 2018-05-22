@@ -299,8 +299,8 @@ DataTable.defaultProps = {
   scrollElement: null,
   useWindow: true,
   thPadding: '5px',
-  thHeight: '36px',
-  thFontSize: '12px'
+  thHeight: '31px',
+  thFontSize: '14px'
 };
 
 DataTable.propTypes = {
