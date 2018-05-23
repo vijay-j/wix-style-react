@@ -21,7 +21,8 @@ export default {
   component: Label,
   componentPath: '../../src/Label',
   componentProps: {
-    children: children[0]
+    children: children[0],
+    size: 'medium'
   },
 
   exampleProps: {
