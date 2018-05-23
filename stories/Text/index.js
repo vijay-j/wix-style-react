@@ -8,7 +8,7 @@ import ControlledTextExample from './Example';
 import ControlledTextExampleRaw from '!raw-loader!./Example';
 import ControlledTextExampleTypography from './ExampleTextTypography';
 import ControlledTextExampleTypographyRaw from '!raw-loader!./ExampleTextTypography';
-import {Heading} from 'wix-ui-backoffice/Heading';
+import Heading from '../../src/Heading';
 
 storiesOf('1. Foundation', module)
   .add('1.2 Text', () => (

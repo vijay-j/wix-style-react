@@ -4,9 +4,8 @@ import Dropdown from '../../src/Dropdown';
 import {Heading} from 'wix-ui-backoffice/Heading';
 import Input from '../../src/Input';
 import Text from '../../src/Text';
-import {SKINS} from 'wix-ui-backoffice/dist/src/components/Text/constants';
 
-const skinOptions = Object.keys(SKINS).map(value => ({id: value, value}));
+const skinOptions = ['standard', 'error', 'success', 'premium'].map(value => ({id: value, value}));
 const sizeOptions = ['small', 'medium'].map(value => ({id: value, value}));
 
 class ControlledTextExample extends React.Component {
