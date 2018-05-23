@@ -12,6 +12,8 @@ Types of changes:
 1. **Security** in case of vulnerabilities.
 1. **Breaking** for breaking changes
 
+## 4.0.0 - 2018-05-23
+
 ## 3.1.11 - 2018-05-16
 ### Changed
 - `<Loader/>` - allow nodes in `text` prop [#1733](https://github.com/wix/wix-style-react/pull/1733)
