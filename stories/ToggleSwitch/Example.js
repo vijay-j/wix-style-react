@@ -4,7 +4,7 @@ import style from './ToggleSwitch.scss';
 import ToggleSwitch from 'wix-style-react/ToggleSwitch';
 import {Heading} from 'wix-ui-backoffice/Heading';
 import {Autocomplete} from 'wix-ui-backoffice/Autocomplete';
-import {UIText} from 'wix-ui-backoffice/UIText';
+import Text from '../../src/Text';
 
 const skinOptions = Object.keys(SKINS).map(value => Autocomplete.createOption({id: value, value}));
 const sizeOptions = Object.keys(SIZES).map(value => Autocomplete.createOption({id: value, value}));
@@ -29,9 +29,9 @@ class ControlledToggleSwitchExample extends React.Component {
           <Heading appearance="H2">skin: </Heading> <Autocomplete options={skinOptions} onSelect={({value}) => this.setState({skin: value})} initialSelectedId={this.state.skin}/><br/><br/>
           <Heading appearance="H2">checked: </Heading> <ToggleSwitch size="small" checked={this.state.checked} onChange={() => this.setState({checked: !this.state.checked})}/><br/><br/>
           <Heading appearance="H2">disabled: </Heading> <ToggleSwitch size="small" checked={this.state.disabled} onChange={() => this.setState({disabled: !this.state.disabled})}/><br/><br/>
-          <Heading appearance="H2">tabIndex: </Heading> <UIText appearance="T2.4">Tab Index</UIText><br/><br/>
-          <Heading appearance="H2">onChange: </Heading> <UIText appearance="T2.4">Callback function when User changes the value of the component</UIText><br/><br/>
-          <Heading appearance="H2">id: </Heading> <UIText appearance="T2.4">The ID attribute to put on the toggle</UIText><br/><br/>
+          <Heading appearance="H2">tabIndex: </Heading> <Text bold>Tab Index</Text><br/><br/>
+          <Heading appearance="H2">onChange: </Heading> <Text bold>Callback function when User changes the value of the component</Text><br/><br/>
+          <Heading appearance="H2">id: </Heading> <Text bold>The ID attribute to put on the toggle</Text><br/><br/>
         </div>
         <div>
           <Heading> Preview </Heading><br/><br/><br/><br/><br/><br/><br/><br/><br/>

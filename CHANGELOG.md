@@ -13,6 +13,11 @@ Types of changes:
 1. **Breaking** for breaking changes
 
 ## 4.0.0 - 2018-05-23
+### Breaking
+`<ToggleSwitch>` -  [migration guide](https://github.com/wix/wix-style-react/blob/master/src/ToggleSwitch/MIGRATION.md)
+- `<Text/>` [migration guide](https://github.com/wix/wix-style-react/blob/master/src/Text/MIGRATION.md)
+- `<Label/>` [migration guide](https://github.com/wix/wix-style-react/blob/master/src/Label/MIGRATION.md)
+
 
 ## 3.1.11 - 2018-05-16
 ### Changed

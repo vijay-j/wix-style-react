@@ -7,7 +7,6 @@ import CheckboxIndeterminate from 'wix-ui-icons-common/system/CheckboxIndetermin
 
 import styles from './Checkbox.scss';
 import WixComponent from '../BaseComponents/WixComponent';
-import Label from '../Label/Label';
 import {withFocusable, focusableStates} from '../common/Focusable';
 
 /** a simple WixStyle checkbox */
@@ -94,10 +93,9 @@ class Checkbox extends WixComponent {
           style={{display: 'none'}}
           />
 
-        <Label
-          for={id}
-          appearance={disabled ? 'T1.4' : 'T1.1'}
-          dataHook="checkbox-label"
+        <label
+          htmlFor={id}
+          data-hook="checkbox-label"
           >
           <div
             data-hook="checkbox-box"
@@ -116,7 +114,7 @@ class Checkbox extends WixComponent {
               {children}
             </div>
           }
-        </Label>
+        </label>
       </div>
     );
   }
