@@ -25,7 +25,7 @@ The card is a container component of a rounded corner layout.
 | buttonPrefix | node | - | - | An optional Icon to put before the button |
 | buttonSuffix | node | - | - | An optional Icon to put after the button |
 | tooltip | node | - | - | If set, this tooltip will wrap the button |
-| theme | string | 'standard' | - | Can be 'standard' or 'fullblue' |
+| theme | string | 'standard' | - | Can be 'standard', 'fullblue' or 'emptyblue' |
 | withoutDivider | bool | false | - | Whether to show divider or not |
 
 #### Card.LinkHeader

@@ -26,6 +26,18 @@ describe('TooltipContainerStrategy', () => {
     expect(container).toBe(parent);
   });
 
+  it('should return matching ancestor by predicate when appendByPredicate has a value', () => {
+    const tooltipContainerStrategy = new TooltipContainerStrategy(null, null, el => el.getAttribute('some-attr') === 'some-value');
+    const ancestor = document.createElement('div');
+    ancestor.setAttribute('some-attr', 'some-value');
+    const parent = document.createElement('div');
+    ancestor.appendChild(parent);
+    const element = document.createElement('div');
+    parent.appendChild(element);
+    const container = tooltipContainerStrategy.getContainer(element);
+    expect(container).toBe(ancestor);
+  });
+
   it('should return appendTo element when provided and appendToParent is true', () => {
     const appendToElement = document.createElement('div');
     const tooltipContainerStrategy = new TooltipContainerStrategy(appendToElement, true);

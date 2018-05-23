@@ -1,19 +1,21 @@
-
-const predicates = [
-  element => element.getAttribute('data-class') === 'page-scrollable-content',
-  element => element === document.body
-];
-
 export class TooltipContainerStrategy {
-  constructor(appendTo, appendToParent) {
+  constructor(appendTo, appendToParent, appendByPredicate) {
+    this._predicates = [
+      element => element.getAttribute('data-class') === 'page-scrollable-content',
+      element => element === document.body
+    ];
+
     this._ancestor = null;
     this._appendTo = appendTo;
     this._appendToParent = appendToParent;
+    if (appendByPredicate) {
+      this._predicates.push(appendByPredicate);
+    }
   }
 
   _findAncestor(element) {
     while (element) {
-      if (predicates.some(pred => pred(element))) { // eslint-disable-line
+      if (this._predicates.some(pred => pred(element))) { // eslint-disable-line
         break;
       }
 

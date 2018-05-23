@@ -2,6 +2,7 @@
 
 .tag {
   @include FontLight();
+  box-sizing: border-box;
   position: relative;
   border-radius: 100px;
   display: inline-flex;

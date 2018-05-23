@@ -18,6 +18,16 @@ Types of changes:
 - `<Text/>` [migration guide](https://github.com/wix/wix-style-react/blob/master/src/Text/MIGRATION.md)
 - `<Label/>` [migration guide](https://github.com/wix/wix-style-react/blob/master/src/Label/MIGRATION.md)
 
+## next
+### Fixed
+- `<Loader/>` - error message margin should be 18px [#1749](https://github.com/wix/wix-style-react/pull/1749)
+- `<RadioGroup/>` - fix icon size [#1750](https://github.com/wix/wix-style-react/pull/1750)
+- `<RichTextArea/>` - Fix link creation that caused javascript errors [#1745](https://github.com/wix/wix-style-react/pull/1745)
+
+### Added
+- `<Card.ButtonHeader/>` - add 'emptyblue' theme [#1740](https://github.com/wix/wix-style-react/pull/1740)
+- `<Tag/>` - fix component box-sizing [#1759](https://github.com/wix/wix-style-react/pull/1759)
+- `<Tooltip/>` - use appendByPredicate to support custom appending strategies [#1754](https://github.com/wix/wix-style-react/pull/1754)
 
 ## 3.1.11 - 2018-05-16
 ### Changed

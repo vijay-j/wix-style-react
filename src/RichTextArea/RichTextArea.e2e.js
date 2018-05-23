@@ -72,6 +72,44 @@ describe('RichTextArea', () => {
     });
   });
 
+  describe('Link', () => {
+    it('should insert link to empty RTE', async () => {
+      await focusEditor();
+      await richTextAreaTestkit.clickButtonByType('link');
+      await richTextAreaTestkit.isLinkDialogVisible();
+      await richTextAreaTestkit.enterLinkUrl('http://www.wix.com');
+      await richTextAreaTestkit.enterLinkText('WixSite');
+      await richTextAreaTestkit.insertLink();
+      expect(await richTextAreaTestkit.getText()).toBe('WixSite');
+      expect(await richTextAreaTestkit.isLinkAdded('http://www.wix.com')).toBeTruthy();
+    });
+
+    it('should insert link after the word in RTE', async () => {
+      await focusEditor();
+      await richTextAreaTestkit.enterText('sometext ');
+      await richTextAreaTestkit.clickButtonByType('link');
+      await richTextAreaTestkit.isLinkDialogVisible();
+      await richTextAreaTestkit.enterLinkUrl('http://www.wix.com');
+      await richTextAreaTestkit.enterLinkText('WixSite');
+      await richTextAreaTestkit.insertLink();
+      expect(await richTextAreaTestkit.getText()).toBe('sometext WixSite');
+      expect(await richTextAreaTestkit.isLinkAdded('http://www.wix.com')).toBeTruthy();
+    });
+
+    it('should create a link from selected text', async () => {
+      await focusEditor();
+      await richTextAreaTestkit.enterText('sometext and wix');
+      await richTextAreaTestkit.selectLastWord();
+      await richTextAreaTestkit.clickButtonByType('link');
+      await richTextAreaTestkit.isLinkDialogVisible({withText: false});
+      await richTextAreaTestkit.enterLinkUrl('http://www.wix.com');
+      await richTextAreaTestkit.insertLink();
+      expect(await richTextAreaTestkit.getText()).toBe('sometext and wix');
+      expect(await richTextAreaTestkit.isLinkAdded('http://www.wix.com')).toBeTruthy();
+    });
+  });
+
+
   describe('Focus+Error', () => {
     beforeEach(async () => {
       await autoExampleDriver.setProps({error: true});

@@ -64,6 +64,13 @@ class Tooltip extends WixComponent {
      */
     appendToParent: PropTypes.bool,
 
+    /**
+     * In cases where you need to append the tooltip to some ancestor which is not the direct parent, you can pass a
+     * predicate function of the form `(element: DOMElement) => Boolean`, and the tooltip will be attached to the
+     * closest ancestor for which the predicate returns `true`
+     */
+    appendByPredicate: PropTypes.func,
+
     /** Element to attach the tooltip to  */
     appendTo: PropTypes.any,
 
@@ -135,7 +142,7 @@ class Tooltip extends WixComponent {
       hidden: true
     };
 
-    this._tooltipContainerStrategy = new TooltipContainerStrategy(props.appendTo, props.appendToParent);
+    this._tooltipContainerStrategy = new TooltipContainerStrategy(props.appendTo, props.appendToParent, props.appendByPredicate);
   }
 
   componentElements() {

@@ -28,6 +28,7 @@ class RichTextAreaLinkForm extends Component {
         <div className={styles.input}>
           <TextField>
             <Input
+              dataHook="rich-text-area-link-url"
               onChange={this.getChangeHandler('href')}
               placeholder="URL this link should go to"
               size="small"
@@ -60,6 +61,7 @@ class RichTextAreaLinkForm extends Component {
       <div className={styles.input}>
         <TextField>
           <Input
+            dataHook="rich-text-area-link-text"
             onChange={this.getChangeHandler('text')}
             placeholder="Text to display"
             size="small"
