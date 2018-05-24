@@ -2,7 +2,7 @@
 
 .table {
   border-collapse: collapse;
-  font-family:HelveticaNeueW01-55Roma,HelveticaNeueW02-55Roma,HelveticaNeueW10-55Roma,sans-serif;
+  font-family: HelveticaNeueW01-55Roma, HelveticaNeueW02-55Roma, HelveticaNeueW10-55Roma, sans-serif;
   table-layout: fixed;
   background-color: white;
 }
@@ -10,17 +10,13 @@
 .table th {
   background-color: $B40;
   text-align: left;
-  text-align: start;  // not supported in IE11 & Edge; 'left' as fallback
-  color: $D10;
+  text-align: start; // not supported in IE11 & Edge; 'left' as fallback
   font-weight: normal;
   box-shadow: inset 0 1px 0 0 $B30, inset 0 -1px 0 0 $B30;
 }
 
 .table td {
-  font-size: 14px;
-  color: $D20;
   padding: 18px 12px;
-  line-height: 1.15;
   font-weight: normal;
   box-shadow: inset 0 -1px 0 0 $D60;
 }
@@ -47,11 +43,12 @@
 }
 
 .sortArrowAsc,
-.sortArrowDesc{
+.sortArrowDesc {
   font-size: 9px;
   margin: 0 4px;
 }
-.sortArrowDesc svg{
+
+.sortArrowDesc svg {
   transform: rotate(180deg);
 }
 

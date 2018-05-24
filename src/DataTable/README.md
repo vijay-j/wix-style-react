@@ -25,11 +25,12 @@
 | loader | node | Loading ...| - | The loader to show when loading more items. |
 | useWindow | boolean | true | - | Add scroll listeners to the window, or else, the component's parentNode. |
 | scrollElement | DOM Object | - | - | Add scroll listeners to specified DOM Object. |
-| thPadding | string | '5px' | - | Table headers padding |
-| thHeight | string | '36px' | - | Table headers height |
-| thFontSize | string | '12px' | - | Table headers font size |
-| thBorder | string | '1px' | - | Table headers border |
-| thColor | string | '#123456' | - | Table headers color |
+| tdVerticalPadding | string | 'small' | - | Table cell vertical padding. should be 'small' or 'large' |
+| thPadding | string | '12px' | - | Table headers padding |
+| thHeight | string | '18px' | - | Table headers height |
+| thFontSize | string | - | - | Table headers font size |
+| thBorder | string | - | - | Table headers border |
+| thColor | string | - | - | Table headers color |
 | thOpacity | string | '0.8' | - | Table headers opacity |
 | thLetterSpacing | string | '1.5px' | - | Table headers letter spacing |
 | rowDetails | func | - | - | Function that returns React component that will be rendered in row details section. Example: `rowDetails={(row, rowNum) => <MyRowDetailsComponent {...row} />}` |

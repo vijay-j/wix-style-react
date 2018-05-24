@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import s from './DataTable.scss';
+import typography from '../Typography/Typography.scss';
 import classNames from 'classnames';
 import InfiniteScroll from './InfiniteScroll';
 import WixComponent from '../BaseComponents/WixComponent';
@@ -185,7 +186,7 @@ class DataTable extends WixComponent {
   };
 
   renderCell = (rowData, column, rowNum, colNum, tdVerticalPadding) => {
-    const classes = classNames({[s.important]: column.important});
+    const classes = classNames(typography.t1, {[s.important]: column.important});
     const width = rowNum === 0 && this.props.hideHeader ? column.width : undefined;
     const verticalPadding = tdVerticalPadding === 'large' ? '24x' : '18px';
 
@@ -260,6 +261,7 @@ class TableHeader extends Component {
       <th
         style={style}
         key={colNum}
+        className={typography.t4}
         {...optionalHeaderCellProps}
         >
         {column.title}{this.renderSortingArrow(column.sortDescending, colNum)}
@@ -301,7 +303,6 @@ DataTable.defaultProps = {
   useWindow: true,
   thPadding: '12px',
   thHeight: '18px',
-  thFontSize: '14px',
   tdVerticalPadding: 'small'
 };
 
