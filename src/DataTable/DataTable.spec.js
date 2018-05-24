@@ -203,14 +203,14 @@ describe('Table', () => {
       title: 'c',
       render: () => 'c',
       style: {
-        padding: '1px',
+        paddingLeft: '1px',
         height: '2px',
         width: '100px'
       }
     });
     const driver = createDriver(<DataTable {...clonedProps}/>);
     expect(driver.getCellStyle(0, 3)).toEqual(jasmine.objectContaining({
-      padding: '1px',
+      'padding-left': '1px',
       height: '2px',
       width: '100px'
     }));

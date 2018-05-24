@@ -184,12 +184,13 @@ class DataTable extends WixComponent {
     return rowsToRender;
   };
 
-  renderCell = (rowData, column, rowNum, colNum) => {
+  renderCell = (rowData, column, rowNum, colNum, tdVerticalPadding) => {
     const classes = classNames({[s.important]: column.important});
     const width = rowNum === 0 && this.props.hideHeader ? column.width : undefined;
+    const verticalPadding = tdVerticalPadding === 'large' ? '24x' : '18px';
 
     return (<td
-      style={column.style}
+      style={{...column.style, paddingTop: verticalPadding, paddingBottom: verticalPadding}}
       width={width}
       className={classes}
       key={colNum}
@@ -298,9 +299,10 @@ DataTable.defaultProps = {
   loader: <div className="loader">Loading ...</div>,
   scrollElement: null,
   useWindow: true,
-  thPadding: '5px',
-  thHeight: '31px',
-  thFontSize: '14px'
+  thPadding: '12px',
+  thHeight: '18px',
+  thFontSize: '14px',
+  tdVerticalPadding: 'small'
 };
 
 DataTable.propTypes = {
@@ -333,6 +335,10 @@ DataTable.propTypes = {
   loader: PropTypes.node,
   useWindow: PropTypes.bool,
   scrollElement: PropTypes.object,
+  tdVerticalPadding: PropTypes.oneOf([
+    'small',
+    'large'
+  ]),
   thPadding: PropTypes.string,
   thHeight: PropTypes.string,
   thFontSize: PropTypes.string,
